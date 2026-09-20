@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import { ORG, EIXOS } from '../dados';
+---
+
+<Base
+  titulo="Quem somos"
+  descricao="A ADECAC é uma entidade civil sem fins econômicos, fundada em 2011 em Cajuru/SP, com finalidades artístico-culturais e educacionais."
+>
+  <section class="topo">
+    <div class="wrap">
+      <p class="olho">Quem somos</p>
+      <h1>Uma associação de Cajuru, feita por gente de Cajuru</h1>
+      <p class="topo__linha">{ORG.missaoLonga}</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="prosa">
+      <h2>A instituição</h2>
+      <p>
+        A <strong>{ORG.razaoSocial}</strong> foi fundada em {ORG.fundacao}, em Cajuru, interior de
+        São Paulo. É uma entidade civil de direito privado, <strong>sem fins econômicos</strong>, com
+        finalidades de natureza artístico-cultural e educacional, conforme o Art. 3º do seu Estatuto.
+      </p>
+      <p>
+        O Estatuto foi registrado em 22 de junho de 2011, no Cartório de Registro de Imóveis e Anexos
+        de Cajuru/SP, e o CNPJ foi aberto em 14 de julho do mesmo ano. A associação tem prazo de
+        duração indeterminado.
+      </p>
+      <p>
+        Desde 2017, a ADECAC mantém parceria com a Com Arte Produções Artísticas para promoção,
+        produção local e execução de eventos e projetos culturais. Desde 2020, tem representação no
+        Conselho Municipal de Cultura (COMCULT) e no Fundo Municipal de Cultura (FUMCULT) de Cajuru.
+      </p>
+
+      <h2>Nossa missão</h2>
+      <blockquote class="missao">{ORG.missao}</blockquote>
+      <p>
+        São três verbos e três compromissos. Cada projeto da associação responde a pelo menos um
+        deles — e o que não responde a nenhum, não é da nossa alçada.
+      </p>
+    </div>
+    </div>
+  </section>
+
+  <section class="secao secao--suave">
+    <div class="wrap">
+      <p class="olho">Os três eixos</p>
+      <h2>O que cada verbo quer dizer</h2>
+      <div class="grade grade--3 eixos">
+        {EIXOS.map((eixo) => (
+          <article class="eixo">
+            <h3>{eixo.nome}</h3>
+            <p class="eixo__resumo">{eixo.resumo}</p>
+            <p class="eixo__detalhe">{eixo.detalhe}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="prosa">
+      <h2>Transparência</h2>
+      <p>
+        A composição dos conselhos, os dados cadastrais e os documentos institucionais da associação
+        ficam reunidos em uma página própria.
+      </p>
+      <p><a class="btn" href="/transparencia/">Ver a página de transparência</a></p>
+    </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--linha); }
+  .topo h1 { max-width: 20ch; }
+  .topo__linha { font-size: 1.15rem; color: var(--tinta-suave); max-width: 58ch; margin-top: 1rem; }
+
+  .missao {
+    margin: 1.5rem 0 1.75rem; padding: 1.4rem 1.6rem;
+    border-left: 4px solid var(--azul-principal);
+    background: var(--papel-suave);
+    font-family: var(--fonte-titulo); font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+    font-weight: 600; color: var(--marinho);
+  }
+
+  .eixos { margin-top: 2.5rem; }
+  .eixo { border-top: 3px solid var(--azul-principal); padding-top: 1.3rem; }
+  .eixo h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .eixo__resumo { font-weight: 600; }
+  .eixo__detalhe { color: var(--tinta-suave); font-size: 0.96rem; }
+</style>

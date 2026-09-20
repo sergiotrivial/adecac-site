@@ -1,0 +1,86 @@
+---
+const { pathname } = Astro.url;
+const links = [
+  { href: '/', rotulo: 'Início' },
+  { href: '/quem-somos/', rotulo: 'Quem somos' },
+  { href: '/projetos/', rotulo: 'Projetos' },
+  { href: '/transparencia/', rotulo: 'Transparência' },
+  { href: '/contato/', rotulo: 'Contato' },
+];
+const ativo = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<header class="cab">
+  <div class="wrap cab__interno">
+    <a href="/" class="cab__marca" aria-label="ADECAC — página inicial">
+      <img src="/logos/ADECAC_horizontal_azul.png" alt="ADECAC" width="170" height="44" />
+    </a>
+
+    <button class="cab__botao" aria-expanded="false" aria-controls="menu-principal">
+      <span class="cab__botao-texto">Menu</span>
+      <span class="cab__barras" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+
+    <nav id="menu-principal" class="cab__nav" aria-label="Navegação principal">
+      {links.map((l) => (
+        <a href={l.href} aria-current={ativo(l.href) ? 'page' : undefined}>{l.rotulo}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .cab {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
+  }
+  .cab__interno {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 74px;
+  }
+  .cab__marca img { width: 170px; height: auto; }
+
+  .cab__nav { display: flex; gap: 0.35rem; align-items: center; }
+  .cab__nav a {
+    font-family: var(--fonte-titulo);
+    font-size: 0.93rem; font-weight: 500;
+    color: var(--tinta); text-decoration: none;
+    padding: 0.5rem 0.85rem; border-radius: 8px;
+  }
+  .cab__nav a:hover { background: var(--papel-suave); color: var(--azul-escuro); }
+  .cab__nav a[aria-current='page'] { color: var(--azul-escuro); font-weight: 600; }
+
+  .cab__botao {
+    display: none; align-items: center; gap: 0.5rem;
+    background: none; border: 1px solid var(--linha); border-radius: 8px;
+    padding: 0.55rem 0.8rem; cursor: pointer;
+    font-family: var(--fonte-titulo); font-size: 0.9rem; font-weight: 500;
+    color: var(--tinta);
+  }
+  .cab__barras { display: grid; gap: 3px; }
+  .cab__barras i { display: block; width: 17px; height: 2px; background: var(--tinta); }
+
+  @media (max-width: 860px) {
+    .cab__botao { display: flex; }
+    .cab__nav {
+      display: none; position: absolute; left: 0; right: 0; top: 100%;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: #fff; border-bottom: 1px solid var(--linha);
+      padding: 0.5rem var(--gutter) 1rem;
+    }
+    .cab__nav.aberto { display: flex; }
+    .cab__nav a { padding: 0.8rem 0.25rem; border-radius: 0; }
+  }
+</style>
+
+<script>
+  const botao = document.querySelector<HTMLButtonElement>('.cab__botao');
+  const nav = document.getElementById('menu-principal');
+  botao?.addEventListener('click', () => {
+    const aberto = nav?.classList.toggle('aberto') ?? false;
+    botao.setAttribute('aria-expanded', String(aberto));
+  });
+</script>

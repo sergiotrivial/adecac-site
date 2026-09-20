@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Cabecalho from '../components/Cabecalho.astro';
+import Rodape from '../components/Rodape.astro';
+import { ORG } from '../dados';
+
+interface Props { titulo: string; descricao: string; }
+const { titulo, descricao } = Astro.props;
+const tituloCompleto = titulo === 'inicio' ? `ADECAC — ${ORG.razaoSocial}` : `${titulo} — ADECAC`;
+const canonica = new URL(Astro.url.pathname, Astro.site ?? 'https://www.adecac.com.br');
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+    <link rel="icon" href="/logos/ADECAC_simbolo_azul_principal.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ADECAC" />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:locale" content="pt_BR" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <Cabecalho />
+    <main id="conteudo"><slot /></main>
+    <Rodape />
+  </body>
+</html>

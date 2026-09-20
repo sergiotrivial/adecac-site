@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projetos = await getCollection('projetos');
+  return projetos.map((projeto) => ({ params: { id: projeto.id }, props: { projeto } }));
+}
+
+const { projeto } = Astro.props;
+const { Content } = await render(projeto);
+const d = projeto.data;
+---
+
+<Base titulo={d.titulo} descricao={d.resumo}>
+  <article>
+    <header class="topo">
+      <div class="wrap">
+        <p class="voltar"><a href="/projetos/">← Todos os projetos</a></p>
+        <div class="topo__meta">
+          <span class="etiqueta">{d.eixo}</span>
+          <span class="topo__situacao" data-situacao={d.situacao}>{d.situacao}</span>
+        </div>
+        <h1>{d.titulo}</h1>
+        <p class="topo__periodo">{d.periodo}</p>
+      </div>
+    </header>
+
+    {d.numeros.length > 0 && (
+      <section class="faixa">
+        <div class="wrap">
+          <ul class="numeros">
+            {d.numeros.map((n) => (
+              <li><strong>{n.valor}</strong><span>{n.rotulo}</span></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <section class="secao">
+      <div class="wrap">
+      <div class="prosa corpo">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+    {d.creditos.length > 0 && (
+      <section class="secao secao--suave">
+        <div class="wrap">
+          <h2>Ficha técnica</h2>
+          <dl class="creditos">
+            {d.creditos.map((c) => (
+              <div class="credito">
+                <dt>{c.papel}</dt>
+                <dd>{c.quem}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+    )}
+  </article>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(2.5rem, 6vw, 4rem); border-bottom: 1px solid var(--linha); }
+  .voltar { font-size: 0.9rem; margin-bottom: 1.4rem; }
+  .voltar a { text-decoration: none; }
+  .topo__meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+  .etiqueta {
+    font-family: var(--fonte-titulo); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    background: #EDF0FF; color: var(--azul-escuro);
+    padding: 0.32em 0.7em; border-radius: 99px;
+  }
+  .topo__situacao { font-size: 0.85rem; color: var(--tinta-suave); }
+  .topo__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }
+  .topo h1 { max-width: 22ch; }
+  .topo__periodo { color: var(--tinta-suave); margin: 0; }
+
+  .faixa { background: var(--marinho); padding-block: 2.25rem; }
+  .numeros { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2.75rem; }
+  .numeros strong {
+    display: block; font-family: var(--fonte-titulo); font-weight: 700;
+    font-size: clamp(2rem, 4.5vw, 2.75rem); color: #fff; line-height: 1;
+  }
+  .numeros span { display: block; margin-top: 0.4rem; color: #C9D3FF; font-size: 0.92rem; }
+
+  .corpo :global(h2) { margin-top: 2rem; }
+  .corpo :global(strong) { color: var(--marinho); }
+
+  .creditos { margin: 1.75rem 0 0; display: grid; gap: 1rem; max-width: 60ch; }
+  .credito { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--linha); }
+  .credito dt { font-family: var(--fonte-titulo); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--azul-escuro); }
+  .credito dd { margin: 0; }
+  @media (max-width: 600px) { .credito { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>

@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projetos = (await getCollection('projetos')).sort((a, b) => a.data.ordem - b.data.ordem);
+---
+
+<Base
+  titulo="Projetos"
+  descricao="Os projetos realizados pela ADECAC: A Música Transformando Pessoas, os Festivais da Diversidade Cultural, os 100 Anos do Ramal Mogyana e o Memorial Cajuru."
+>
+  <section class="topo">
+    <div class="wrap">
+      <p class="olho">Projetos</p>
+      <h1>O que a ADECAC já realizou</h1>
+      <p class="topo__linha">
+        Todos os projetos desta página foram executados e têm registro no acervo da associação.
+        Os números vêm de relatórios, prestações de contas e listas de presença.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <ul class="lista">
+        {projetos.map((p) => (
+          <li class="item">
+            <div class="item__meta">
+              <span class="etiqueta">{p.data.eixo}</span>
+              <span class="item__situacao" data-situacao={p.data.situacao}>{p.data.situacao}</span>
+              <span class="item__periodo">{p.data.periodo}</span>
+            </div>
+            <h2><a href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h2>
+            <p class="item__resumo">{p.data.resumo}</p>
+            {p.data.numeros.length > 0 && (
+              <ul class="mini">
+                {p.data.numeros.map((n) => (
+                  <li><strong>{n.valor}</strong> {n.rotulo}</li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--linha); }
+  .topo h1 { max-width: 18ch; }
+  .topo__linha { font-size: 1.1rem; color: var(--tinta-suave); max-width: 62ch; margin-top: 1rem; }
+
+  .lista { list-style: none; margin: 0; padding: 0; }
+  .item { padding-block: 2.25rem; border-bottom: 1px solid var(--linha); }
+  .item:first-child { padding-top: 0; }
+  .item__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin-bottom: 0.85rem; }
+  .etiqueta {
+    font-family: var(--fonte-titulo); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    background: #EDF0FF; color: var(--azul-escuro);
+    padding: 0.32em 0.7em; border-radius: 99px;
+  }
+  .item__situacao { font-size: 0.82rem; color: var(--tinta-suave); }
+  .item__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }
+  .item__periodo { font-size: 0.82rem; color: var(--tinta-suave); }
+  .item h2 { font-size: clamp(1.35rem, 2.6vw, 1.75rem); margin-bottom: 0.45rem; }
+  .item h2 a { color: var(--tinta); text-decoration: none; }
+  .item h2 a:hover { color: var(--azul-escuro); }
+  .item__resumo { color: var(--tinta-suave); max-width: 66ch; }
+
+  .mini { list-style: none; display: flex; flex-wrap: wrap; gap: 1.6rem; margin: 1.1rem 0 0; padding: 0; }
+  .mini li { font-size: 0.92rem; color: var(--tinta-suave); }
+  .mini strong {
+    font-family: var(--fonte-titulo); font-size: 1.45rem; font-weight: 700;
+    color: var(--azul-escuro); display: block; line-height: 1.1;
+  }
+</style>

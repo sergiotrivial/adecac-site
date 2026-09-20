@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import { ORG } from '../dados';
+---
+
+<Base
+  titulo="Contato"
+  descricao="Fale com a ADECAC — Associação de Cultura e Artes de Cajuru. E-mail, telefone, endereço e redes sociais."
+>
+  <section class="topo">
+    <div class="wrap">
+      <p class="olho">Contato</p>
+      <h1>Fale com a ADECAC</h1>
+      <p class="topo__linha">
+        Para dúvidas sobre os projetos, propostas de parceria, imprensa ou pedidos de documento.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="grade grade--2">
+        <div class="bloco">
+          <h2>Canais diretos</h2>
+          <ul class="canais">
+            <li>
+              <span class="canais__rotulo">E-mail</span>
+              <a href={`mailto:${ORG.email}`}>{ORG.email}</a>
+            </li>
+            <li>
+              <span class="canais__rotulo">Telefone</span>
+              <a href={`tel:${ORG.telefoneLink}`}>{ORG.telefone}</a>
+            </li>
+            <li>
+              <span class="canais__rotulo">Endereço</span>
+              <span>{ORG.endereco}<br />{ORG.cep}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bloco">
+          <h2>Redes sociais</h2>
+          <p class="prosa">
+            É nas redes que publicamos as aulas, os ensaios da Orquestra de Cordas e a
+            programação dos festivais.
+          </p>
+          <ul class="canais">
+            <li>
+              <span class="canais__rotulo">Instagram</span>
+              <a href={ORG.instagram} rel="me noopener">{ORG.instagramNome}</a>
+            </li>
+            <li>
+              <span class="canais__rotulo">Facebook</span>
+              <a href={ORG.facebook} rel="me noopener">facebook.com/adecaccajuru</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao secao--escura">
+    <div class="wrap">
+      <div class="prosa">
+      <h2>Quer apoiar o trabalho?</h2>
+      <p>
+        A ADECAC mantém aulas gratuitas de música e realiza eventos abertos à comunidade de Cajuru.
+        Empresas e pessoas interessadas em patrocinar um projeto podem escrever para
+        <a href={`mailto:${ORG.email}`}>{ORG.email}</a>.
+      </p>
+    </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--linha); }
+  .topo__linha { font-size: 1.08rem; color: var(--tinta-suave); max-width: 56ch; margin-top: 1rem; }
+
+  .bloco h2 { font-size: 1.3rem; margin-bottom: 1.2rem; }
+  .canais { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 1.35rem; }
+  .canais__rotulo {
+    display: block; font-family: var(--fonte-titulo); font-size: 0.74rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--azul-escuro);
+    margin-bottom: 0.25rem;
+  }
+  .canais a { font-size: 1.05rem; text-decoration: none; }
+  .canais a:hover { text-decoration: underline; }
+</style>

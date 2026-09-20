@@ -1,0 +1,131 @@
+/* ADECAC — tokens do Manual de Identidade Visual v2.0 (aprovado)
+   Paleta: manual §05. Tipografia: manual §06 — Azo Sans é a fonte oficial das
+   peças impressas; na web usamos Poppins, a equivalente geométrica que o próprio
+   manual indica como simulação, e Inter no corpo de texto. */
+
+:root {
+  --azul-principal: #4D70FB;
+  --azul-variacao:  #4C70F9;
+  --azul-claro:     #4676FA;
+  --azul-escuro:    #4462DD;
+  --marinho:        #131B3E;
+
+  --tinta:      #14182B;
+  --tinta-suave: #4A5070;
+  --linha:      #E3E6F2;
+  --papel:      #FFFFFF;
+  --papel-suave: #F6F7FC;
+
+  --fonte-titulo: 'Poppins', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  --fonte-texto:  'Inter', system-ui, -apple-system, sans-serif;
+
+  --largura: 1140px;
+  --gutter: 24px;
+  --raio: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.15rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1.15em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--azul-escuro); text-underline-offset: 3px; }
+a:hover { color: var(--azul-principal); }
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--largura);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.secao { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.secao--suave { background: var(--papel-suave); }
+.secao--escura { background: var(--marinho); color: #fff; }
+.secao--escura h2 { color: #fff; }
+.secao--escura a { color: #fff; }
+
+/* medida de leitura confortável */
+.prosa { max-width: 68ch; }
+
+.olho {
+  font-family: var(--fonte-titulo);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+  margin: 0 0 0.9rem;
+}
+.secao--escura .olho { color: #9DB0FF; }
+
+.btn {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85em 1.6em;
+  border-radius: var(--raio);
+  background: var(--azul-principal);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+/* manual §05: 4462DD é o tom de hover de botão */
+.btn:hover { background: var(--azul-escuro); color: #fff; }
+
+.btn--contorno {
+  background: transparent;
+  color: var(--azul-escuro);
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+.btn--contorno:hover { background: var(--azul-escuro); color: #fff; box-shadow: none; }
+
+.grade { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); }
+.grade--3 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+.grade--2 { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+
+:where(a, button):focus-visible {
+  outline: 3px solid var(--azul-principal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.pular {
+  position: absolute; left: -9999px;
+  background: #fff; color: var(--marinho);
+  padding: 0.8rem 1.2rem; z-index: 100;
+}
+.pular:focus { left: 1rem; top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
