@@ -1,0 +1,191 @@
+---
+/* Galeria com miniaturas em grade e visualizador em tela cheia.
+   As imagens são geradas em duas resoluções (mini e ampliada) fora do build,
+   então aqui não há processamento — só marcação. */
+
+interface Foto {
+  arquivo: string;
+  largura: number;
+  altura: number;
+  grupo: string;
+  alt: string;
+}
+
+interface Props {
+  fotos: Foto[];
+  pasta: string;
+  titulo?: string;
+  descricao?: string;
+  agrupar?: boolean;
+}
+
+const { fotos, pasta, titulo = 'Galeria', descricao, agrupar = true } = Astro.props;
+
+const grupos = agrupar
+  ? [...new Set(fotos.map((f) => f.grupo))].map((g) => ({
+      nome: g,
+      fotos: fotos.filter((f) => f.grupo === g),
+    }))
+  : [{ nome: '', fotos }];
+
+// índice global, usado pelo visualizador para navegar entre todas as fotos
+let indice = -1;
+---
+
+<section class="secao galeria" data-galeria>
+  <div class="wrap">
+    <p class="olho">{titulo}</p>
+    <h2>{fotos.length} {fotos.length === 1 ? 'imagem' : 'imagens'}</h2>
+    {descricao && <p class="galeria__descricao">{descricao}</p>}
+
+    {grupos.map((grupo) => (
+      <div class="galeria__bloco">
+        {grupo.nome && <h3 class="galeria__grupo">{grupo.nome}</h3>}
+        <ul class="galeria__grade">
+          {grupo.fotos.map((foto) => {
+            indice += 1;
+            return (
+              <li>
+                <button
+                  class="galeria__item"
+                  type="button"
+                  data-indice={indice}
+                  data-cheia={`/galeria/${pasta}/${foto.arquivo}.webp`}
+                  data-alt={foto.alt}
+                  aria-label={`Ampliar: ${foto.alt}`}
+                >
+                  <img
+                    src={`/galeria/${pasta}/${foto.arquivo}-mini.webp`}
+                    alt={foto.alt}
+                    width={foto.largura}
+                    height={foto.altura}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<dialog class="visor" aria-label="Visualizador de imagem">
+  <button class="visor__fechar" type="button" aria-label="Fechar">&times;</button>
+  <button class="visor__nav visor__nav--antes" type="button" aria-label="Imagem anterior">&#8249;</button>
+  <figure class="visor__figura">
+    <img class="visor__img" src="" alt="" />
+    <figcaption class="visor__legenda"></figcaption>
+  </figure>
+  <button class="visor__nav visor__nav--depois" type="button" aria-label="Próxima imagem">&#8250;</button>
+</dialog>
+
+<style>
+  .galeria__descricao { color: var(--tinta-suave); max-width: 62ch; margin-bottom: 0.5rem; }
+
+  .galeria__bloco { margin-top: 2.25rem; }
+  .galeria__grupo {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--azul-escuro);
+    padding-bottom: 0.6rem; margin-bottom: 1rem;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  .galeria__grade {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  }
+
+  .galeria__item {
+    display: block; width: 100%; padding: 0; margin: 0;
+    border: 0; border-radius: 8px; overflow: hidden;
+    background: var(--papel-suave); cursor: zoom-in;
+    aspect-ratio: 1 / 1;
+  }
+  .galeria__item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.35s ease, opacity 0.2s ease;
+  }
+  .galeria__item:hover img { transform: scale(1.05); opacity: 0.92; }
+
+  /* visualizador */
+  .visor {
+    border: 0; padding: 0; max-width: 100vw; max-height: 100vh;
+    width: 100%; height: 100%; background: rgba(10, 14, 32, 0.96);
+  }
+  .visor::backdrop { background: rgba(10, 14, 32, 0.9); }
+  .visor[open] { display: grid; grid-template-columns: auto 1fr auto; align-items: center; }
+
+  .visor__figura { margin: 0; display: grid; place-items: center; gap: 1rem; padding: 1rem; min-width: 0; }
+  .visor__img { max-width: 100%; max-height: 82vh; object-fit: contain; border-radius: 6px; }
+  .visor__legenda { color: #C9D3FF; font-size: 0.92rem; text-align: center; max-width: 60ch; }
+
+  .visor__fechar, .visor__nav {
+    background: rgba(255, 255, 255, 0.1); color: #fff; border: 0;
+    cursor: pointer; border-radius: 50%; line-height: 1;
+    display: grid; place-items: center;
+  }
+  .visor__fechar {
+    position: absolute; top: 14px; right: 14px;
+    width: 42px; height: 42px; font-size: 1.7rem; z-index: 2;
+  }
+  .visor__nav { width: 52px; height: 52px; font-size: 2rem; margin: 0 10px; }
+  .visor__fechar:hover, .visor__nav:hover { background: rgba(255, 255, 255, 0.22); }
+
+  @media (max-width: 640px) {
+    .galeria__grade { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 7px; }
+    .visor__nav { width: 40px; height: 40px; font-size: 1.5rem; margin: 0 3px; }
+  }
+</style>
+
+<script>
+  // Uma página pode ter mais de uma galeria (fotos e material de divulgação).
+  // O visualizador é único, mas navega só dentro da galeria de onde veio o clique.
+  const visores = Array.from(document.querySelectorAll<HTMLDialogElement>('.visor'));
+  const visor = visores[0];
+  visores.slice(1).forEach((v) => v.remove());
+
+  const img = visor?.querySelector<HTMLImageElement>('.visor__img');
+  const legenda = visor?.querySelector<HTMLElement>('.visor__legenda');
+
+  let lista: HTMLButtonElement[] = [];
+  let atual = 0;
+
+  function mostrar(i: number) {
+    if (!lista.length || !img || !legenda) return;
+    atual = (i + lista.length) % lista.length;
+    const btn = lista[atual];
+    img.src = btn.dataset.cheia ?? '';
+    img.alt = btn.dataset.alt ?? '';
+    legenda.textContent = `${btn.dataset.alt ?? ''} — ${atual + 1} de ${lista.length}`;
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-galeria]').forEach((secao) => {
+    const itens = Array.from(secao.querySelectorAll<HTMLButtonElement>('.galeria__item'));
+    itens.forEach((btn, i) =>
+      btn.addEventListener('click', () => {
+        lista = itens;
+        mostrar(i);
+        visor?.showModal();
+      })
+    );
+  });
+
+  visor?.querySelector('.visor__fechar')?.addEventListener('click', () => visor.close());
+  visor?.querySelector('.visor__nav--antes')?.addEventListener('click', () => mostrar(atual - 1));
+  visor?.querySelector('.visor__nav--depois')?.addEventListener('click', () => mostrar(atual + 1));
+
+  visor?.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') mostrar(atual - 1);
+    if (e.key === 'ArrowRight') mostrar(atual + 1);
+  });
+
+  // clicar fora da imagem fecha
+  visor?.addEventListener('click', (e) => {
+    const alvo = e.target as HTMLElement;
+    if (alvo === visor || alvo.classList.contains('visor__figura')) visor.close();
+  });
+</script>

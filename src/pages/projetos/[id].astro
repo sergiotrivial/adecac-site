@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import Galeria from '../../components/Galeria.astro';
+import galerias from '../../galerias.json';
 
 export async function getStaticPaths() {
   const projetos = await getCollection('projetos');
@@ -10,6 +12,12 @@ export async function getStaticPaths() {
 const { projeto } = Astro.props;
 const { Content } = await render(projeto);
 const d = projeto.data;
+
+const acervo = (galerias as Record<string, any[]>)[projeto.id] ?? [];
+// o I Festival tem material gráfico digitalizado além das fotos
+const material = projeto.id === 'i-festival-diversidade-cultural'
+  ? (galerias as Record<string, any[]>)['material-i-festival'] ?? []
+  : [];
 ---
 
 <Base titulo={d.titulo} descricao={d.resumo}>
@@ -45,6 +53,24 @@ const d = projeto.data;
       </div>
     </div>
   </section>
+
+    {acervo.length > 0 && (
+      <Galeria
+        fotos={acervo}
+        pasta={projeto.id}
+        titulo="Galeria"
+        descricao="Registros do acervo da associação. Clique em qualquer imagem para ampliar."
+      />
+    )}
+
+    {material.length > 0 && (
+      <Galeria
+        fotos={material}
+        pasta="material-i-festival"
+        titulo="Material de divulgação"
+        descricao="Programa, expositores e patrocinadores da edição — peças originais do evento, digitalizadas."
+      />
+    )}
 
     {d.instagram && (
       <section class="secao acompanhe">
