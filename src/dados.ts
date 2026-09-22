@@ -14,9 +14,15 @@ export const ORG = {
   email: 'contato@adecac.com.br',
   telefone: '(16) 3667-3503',
   telefoneLink: '+551636673503',
-  instagram: 'https://instagram.com/adecacdecajuru',
-  instagramNome: '@adecacdecajuru',
+  // Corrigido em 22/09/2026: o §2 do briefing traz '@adecacdecajuru', que não existe.
+  // O perfil real é @adecac_cajuru ("Adecac Cajuru"). Divergência a registrar no §7.
+  instagram: 'https://www.instagram.com/adecac_cajuru/',
+  instagramNome: '@adecac_cajuru',
   facebook: 'https://facebook.com/adecaccajuru',
+  // Perfil do projeto de música. A marca-mãe vem sempre primeiro (briefing §1).
+  instagramProjeto: 'https://www.instagram.com/orquestrandocomarte/',
+  instagramProjetoNome: '@orquestrandocomarte',
+  instagramProjetoTitulo: 'Orquestrando a vida',
   // Missão aprovada em 03/08/2026. Usar literal — briefing §3: não inverter os verbos,
   // não trocar sinônimo, não acrescentar um quarto verbo, sem exclamação.
   missao: 'Preservar, formar e celebrar a cultura de Cajuru.',

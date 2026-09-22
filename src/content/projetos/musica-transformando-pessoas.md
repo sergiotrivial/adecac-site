@@ -13,6 +13,10 @@ numeros:
     rotulo: instrumentos fornecidos
   - valor: "4"
     rotulo: cursos de cordas
+instagram:
+  url: https://www.instagram.com/orquestrandocomarte/
+  nome: '@orquestrandocomarte'
+  titulo: Orquestrando a vida
 creditos:
   - papel: Realização
     quem: Governo do Estado de São Paulo / Secretaria da Cultura (ProAC)

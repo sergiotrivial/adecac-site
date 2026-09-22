@@ -46,6 +46,23 @@ const d = projeto.data;
     </div>
   </section>
 
+    {d.instagram && (
+      <section class="secao acompanhe">
+        <div class="wrap">
+          <p class="olho">Acompanhe</p>
+          <h2>{d.instagram.titulo}</h2>
+          <p class="acompanhe__texto">
+            As aulas, os ensaios e as apresentações são publicados no perfil do projeto.
+          </p>
+          <p>
+            <a class="btn" href={d.instagram.url} rel="noopener">
+              Seguir {d.instagram.nome} no Instagram
+            </a>
+          </p>
+        </div>
+      </section>
+    )}
+
     {d.creditos.length > 0 && (
       <section class="secao secao--suave">
         <div class="wrap">
@@ -90,6 +107,10 @@ const d = projeto.data;
 
   .corpo :global(h2) { margin-top: 2rem; }
   .corpo :global(strong) { color: var(--marinho); }
+
+  .acompanhe { border-top: 1px solid var(--linha); }
+  .acompanhe h2 { margin-bottom: 0.6rem; }
+  .acompanhe__texto { color: var(--tinta-suave); max-width: 58ch; margin-bottom: 1.6rem; }
 
   .creditos { margin: 1.75rem 0 0; display: grid; gap: 1rem; max-width: 60ch; }
   .credito { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--linha); }

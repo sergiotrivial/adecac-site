@@ -14,6 +14,7 @@ const projetos = defineCollection({
     // Números só entram aqui com lastro no acervo — briefing §6.3.
     numeros: z.array(z.object({ valor: z.string(), rotulo: z.string() })).default([]),
     creditos: z.array(z.object({ papel: z.string(), quem: z.string() })).default([]),
+    instagram: z.object({ url: z.string().url(), nome: z.string(), titulo: z.string() }).optional(),
   }),
 });
 

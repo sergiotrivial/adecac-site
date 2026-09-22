@@ -53,6 +53,11 @@ import { ORG } from '../dados';
               <span class="canais__rotulo">Facebook</span>
               <a href={ORG.facebook} rel="me noopener">facebook.com/adecaccajuru</a>
             </li>
+            <li>
+              <span class="canais__rotulo">Projeto de música</span>
+              <a href={ORG.instagramProjeto} rel="noopener">{ORG.instagramProjetoNome}</a>
+              <span class="canais__nota">{ORG.instagramProjetoTitulo} — aulas e ensaios da Orquestra de Cordas</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -85,5 +90,6 @@ import { ORG } from '../dados';
     margin-bottom: 0.25rem;
   }
   .canais a { font-size: 1.05rem; text-decoration: none; }
+  .canais__nota { display: block; font-size: 0.88rem; color: var(--tinta-suave); margin-top: 0.2rem; }
   .canais a:hover { text-decoration: underline; }
 </style>
