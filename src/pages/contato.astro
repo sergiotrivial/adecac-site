@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { ORG } from '../dados';
+import Redes from '../components/Redes.astro';
 ---
 
 <Base
@@ -42,23 +43,10 @@ import { ORG } from '../dados';
           <h2>Redes sociais</h2>
           <p class="prosa">
             É nas redes que publicamos as aulas, os ensaios da Orquestra de Cordas e a
-            programação dos festivais.
+            programação dos festivais. No YouTube ficam os vídeos dos eventos e das
+            apresentações.
           </p>
-          <ul class="canais">
-            <li>
-              <span class="canais__rotulo">Instagram</span>
-              <a href={ORG.instagram} rel="me noopener">{ORG.instagramNome}</a>
-            </li>
-            <li>
-              <span class="canais__rotulo">Facebook</span>
-              <a href={ORG.facebook} rel="me noopener">facebook.com/adecaccajuru</a>
-            </li>
-            <li>
-              <span class="canais__rotulo">Projeto de música</span>
-              <a href={ORG.instagramProjeto} rel="noopener">{ORG.instagramProjetoNome}</a>
-              <span class="canais__nota">{ORG.instagramProjetoTitulo} — aulas e ensaios da Orquestra de Cordas</span>
-            </li>
-          </ul>
+          <Redes incluirProjeto={true} />
         </div>
       </div>
     </div>

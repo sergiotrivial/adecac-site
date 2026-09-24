@@ -495,72 +495,492 @@
   {
    "arquivo": "ii-festival-diversidade-cultural-001",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1104,
+   "grupo": "Banda Briltles",
+   "alt": "Apresentação de Banda Briltles no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-002",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Briltles",
+   "alt": "Apresentação de Banda Briltles no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-003",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Briltles",
+   "alt": "Apresentação de Banda Briltles no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-004",
-   "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "largura": 1000,
+   "altura": 1500,
+   "grupo": "Banda Briltles",
+   "alt": "Apresentação de Banda Briltles no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-005",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1033,
+   "grupo": "Banda Dr. Rocha",
+   "alt": "Apresentação de Banda Dr. Rocha no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-006",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Dr. Rocha",
+   "alt": "Apresentação de Banda Dr. Rocha no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-007",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Dr. Rocha",
+   "alt": "Apresentação de Banda Dr. Rocha no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-008",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Mamutes",
+   "alt": "Apresentação de Banda Mamutes no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-009",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Mamutes",
+   "alt": "Apresentação de Banda Mamutes no II Festival da Diversidade Cultural"
   },
   {
    "arquivo": "ii-festival-diversidade-cultural-010",
    "largura": 1500,
-   "altura": 1125,
-   "grupo": "Geral",
-   "alt": "Registro do II Festival da Diversidade Cultural"
+   "altura": 1000,
+   "grupo": "Banda Mamutes",
+   "alt": "Apresentação de Banda Mamutes no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-011",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Banda Mamutes",
+   "alt": "Apresentação de Banda Mamutes no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-012",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Banda Mamutes",
+   "alt": "Apresentação de Banda Mamutes no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-013",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Elton J",
+   "alt": "Apresentação de Elton J no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-014",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Elton J",
+   "alt": "Apresentação de Elton J no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-015",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Elton J",
+   "alt": "Apresentação de Elton J no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-016",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Expositores e artesãos",
+   "alt": "Feira de artesanato no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-017",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Expositores e artesãos",
+   "alt": "Feira de artesanato no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-018",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Expositores e artesãos",
+   "alt": "Feira de artesanato no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-019",
+   "largura": 1500,
+   "altura": 1111,
+   "grupo": "Expositores e artesãos",
+   "alt": "Feira de artesanato no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-020",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Expositores e artesãos",
+   "alt": "Feira de artesanato no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-021",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Hanna Trio",
+   "alt": "Apresentação de Hanna Trio no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-022",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Hanna Trio",
+   "alt": "Apresentação de Hanna Trio no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-023",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Hanna Trio",
+   "alt": "Apresentação de Hanna Trio no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-024",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Karol Luz",
+   "alt": "Apresentação de Karol Luz no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-025",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Karol Luz",
+   "alt": "Apresentação de Karol Luz no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-026",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Lobo Guaíra",
+   "alt": "Apresentação de Lobo Guaíra no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-027",
+   "largura": 1500,
+   "altura": 1146,
+   "grupo": "Lobo Guaíra",
+   "alt": "Apresentação de Lobo Guaíra no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-028",
+   "largura": 1500,
+   "altura": 794,
+   "grupo": "Léo",
+   "alt": "Apresentação de Léo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-029",
+   "largura": 1500,
+   "altura": 954,
+   "grupo": "Léo",
+   "alt": "Apresentação de Léo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-030",
+   "largura": 1500,
+   "altura": 1087,
+   "grupo": "Max e Pedrão",
+   "alt": "Apresentação de Max e Pedrão no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-031",
+   "largura": 1500,
+   "altura": 1271,
+   "grupo": "Max e Pedrão",
+   "alt": "Apresentação de Max e Pedrão no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-032",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Max e Pedrão",
+   "alt": "Apresentação de Max e Pedrão no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-033",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Max e Pedrão",
+   "alt": "Apresentação de Max e Pedrão no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-034",
+   "largura": 1500,
+   "altura": 1148,
+   "grupo": "Mingo",
+   "alt": "Apresentação de Mingo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-035",
+   "largura": 1500,
+   "altura": 1076,
+   "grupo": "Mingo",
+   "alt": "Apresentação de Mingo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-036",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Mingo",
+   "alt": "Apresentação de Mingo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-037",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Mingo",
+   "alt": "Apresentação de Mingo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-038",
+   "largura": 1500,
+   "altura": 1169,
+   "grupo": "Mingo",
+   "alt": "Apresentação de Mingo no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-039",
+   "largura": 1500,
+   "altura": 1016,
+   "grupo": "Old Youngs",
+   "alt": "Apresentação de Old Youngs no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-040",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Old Youngs",
+   "alt": "Apresentação de Old Youngs no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-041",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Old Youngs",
+   "alt": "Apresentação de Old Youngs no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-042",
+   "largura": 1500,
+   "altura": 771,
+   "grupo": "Organização e bastidores",
+   "alt": "Bastidores da organização do II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-043",
+   "largura": 1500,
+   "altura": 977,
+   "grupo": "Organização e bastidores",
+   "alt": "Bastidores da organização do II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-044",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Organização e bastidores",
+   "alt": "Bastidores da organização do II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-045",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Organização e bastidores",
+   "alt": "Bastidores da organização do II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-046",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Orquestra de Cordas de Cajuru",
+   "alt": "Apresentação de Orquestra de Cordas de Cajuru no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-047",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Orquestra de Cordas de Cajuru",
+   "alt": "Apresentação de Orquestra de Cordas de Cajuru no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-048",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Orquestra de Cordas de Cajuru",
+   "alt": "Apresentação de Orquestra de Cordas de Cajuru no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-049",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Orquestra de Cordas de Cajuru",
+   "alt": "Apresentação de Orquestra de Cordas de Cajuru no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-050",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-051",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-052",
+   "largura": 1500,
+   "altura": 939,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-053",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-054",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-055",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-056",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-057",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-058",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-059",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-060",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-061",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-062",
+   "largura": 1500,
+   "altura": 1038,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-063",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Público",
+   "alt": "Público presente no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-064",
+   "largura": 1500,
+   "altura": 1077,
+   "grupo": "Serenata",
+   "alt": "Apresentação de Serenata no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-065",
+   "largura": 1500,
+   "altura": 1177,
+   "grupo": "Serenata",
+   "alt": "Apresentação de Serenata no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-066",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Serenata",
+   "alt": "Apresentação de Serenata no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-067",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Tico",
+   "alt": "Apresentação de Tico no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-068",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Tico",
+   "alt": "Apresentação de Tico no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-069",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Tico",
+   "alt": "Apresentação de Tico no II Festival da Diversidade Cultural"
+  },
+  {
+   "arquivo": "ii-festival-diversidade-cultural-070",
+   "largura": 1500,
+   "altura": 1000,
+   "grupo": "Tico",
+   "alt": "Apresentação de Tico no II Festival da Diversidade Cultural"
   }
  ],
  "100-anos-ramal-mogyana": [

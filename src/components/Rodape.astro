@@ -1,5 +1,6 @@
 ---
 import { ORG } from '../dados';
+import Redes from './Redes.astro';
 const ano = new Date().getFullYear();
 ---
 
@@ -27,10 +28,7 @@ const ano = new Date().getFullYear();
           <a href="/projetos/">Projetos</a><br />
           <a href="/transparencia/">Transparência</a>
         </p>
-        <p class="rod__redes">
-          <a href={ORG.instagram} rel="me noopener">Instagram</a> ·
-          <a href={ORG.facebook} rel="me noopener">Facebook</a>
-        </p>
+        <div class="rod__redes"><Redes variante="escuro" /></div>
       </div>
     </div>
 
@@ -61,6 +59,7 @@ const ano = new Date().getFullYear();
   .rod a { color: #fff; text-decoration: none; }
   .rod a:hover { text-decoration: underline; }
   .rod__redes { margin-top: 1.2rem; }
+  .rod__redes :global(.redes) { gap: 0.5rem; }
   .rod__base {
     border-top: 1px solid rgba(255,255,255,0.16);
     padding-top: 1.75rem;

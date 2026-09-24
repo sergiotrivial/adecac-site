@@ -19,6 +19,8 @@ export const ORG = {
   instagram: 'https://www.instagram.com/adecac_cajuru/',
   instagramNome: '@adecac_cajuru',
   facebook: 'https://facebook.com/adecaccajuru',
+  youtube: 'https://www.youtube.com/@AdecacdeCajuru',
+  youtubeNome: 'Adecac de Cajuru',
   // Perfil do projeto de música. A marca-mãe vem sempre primeiro (briefing §1).
   instagramProjeto: 'https://www.instagram.com/orquestrandocomarte/',
   instagramProjetoNome: '@orquestrandocomarte',
