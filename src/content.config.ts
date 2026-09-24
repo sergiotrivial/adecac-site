@@ -15,6 +15,8 @@ const projetos = defineCollection({
     numeros: z.array(z.object({ valor: z.string(), rotulo: z.string() })).default([]),
     creditos: z.array(z.object({ papel: z.string(), quem: z.string() })).default([]),
     instagram: z.object({ url: z.string().url(), nome: z.string(), titulo: z.string() }).optional(),
+    // id do vídeo no YouTube; quando presente, a página incorpora o player
+    video: z.object({ youtube: z.string(), titulo: z.string() }).optional(),
   }),
 });
 

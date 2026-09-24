@@ -3,7 +3,7 @@ titulo: II Festival ADECAC da Diversidade Cultural
 eixo: Celebração
 periodo: 30 de novembro de 2024
 situacao: Realizado
-ordem: 2
+ordem: 3
 destaque: true
 resumo: Segunda edição do festival, com 46 artistas locais e a Orquestra de Cordas de Cajuru no palco.
 numeros:

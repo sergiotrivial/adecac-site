@@ -3,7 +3,7 @@ titulo: I Festival ADECAC da Diversidade Cultural
 eixo: Celebração
 periodo: 2 de dezembro de 2023
 situacao: Realizado
-ordem: 3
+ordem: 4
 resumo: A primeira edição do festival, com 12 bandas da região e feira de artesanato.
 numeros:
   - valor: "~250"

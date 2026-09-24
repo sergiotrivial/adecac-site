@@ -3,7 +3,7 @@ titulo: Memorial Cajuru
 eixo: Memória
 periodo: 2012 a 2019
 situacao: Descontinuado
-ordem: 5
+ordem: 6
 resumo: Acervo fotográfico e memória das famílias de Cajuru, reunido e publicado em página própria.
 ---
 
