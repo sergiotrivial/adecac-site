@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { ORG, EIXOS } from '../dados';
 import { getCollection } from 'astro:content';
+import capas from '../capas-home.json';
 
 const projetos = (await getCollection('projetos'))
   .filter((p) => p.data.destaque)
@@ -13,6 +14,20 @@ const projetos = (await getCollection('projetos'))
   descricao="A ADECAC preserva a memória de Cajuru, forma novos artistas e celebra quem faz cultura na cidade. Associação de Cultura e Artes de Cajuru, sem fins econômicos, desde 2011."
 >
   <section class="capa">
+    <div class="capa__fotos" aria-hidden="true">
+      {capas.map((c, i) => (
+        <img
+          class:list={['capa__foto', i === 0 && 'esta-visivel']}
+          src={i === 0 ? `/capas/${c.arquivo}-mobile.webp` : undefined}
+          data-desktop={`/capas/${c.arquivo}.webp`}
+          data-mobile={`/capas/${c.arquivo}-mobile.webp`}
+          alt=""
+          width="1600"
+          height="900"
+          fetchpriority={i === 0 ? 'high' : undefined}
+        />
+      ))}
+    </div>
     <div class="wrap capa__interno">
       <p class="olho">Cajuru / SP · desde 2011</p>
       <h1>{ORG.missao}</h1>
@@ -81,10 +96,29 @@ const projetos = (await getCollection('projetos'))
 </Base>
 
 <style>
+  /* Capa com fotos da região do Ramal Mogyana, no mesmo tratamento azul da
+     página Quem somos. O véu escuro por cima garante contraste do texto — as
+     fotos são claras e sem ele o título sumiria. */
   .capa {
-    background: linear-gradient(170deg, var(--marinho) 0%, #1B2454 62%, #24306B 100%);
+    position: relative; isolation: isolate; overflow: hidden;
+    background: var(--marinho);
     color: #fff;
     padding-block: clamp(4rem, 11vw, 8rem);
+  }
+  .capa__fotos { position: absolute; inset: 0; z-index: -2; }
+  .capa__foto {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1.4s ease;
+  }
+  .capa__foto.esta-visivel { opacity: 1; }
+  .capa::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(170deg,
+      rgba(19, 27, 62, 0.86) 0%, rgba(19, 27, 62, 0.78) 55%, rgba(19, 27, 62, 0.9) 100%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .capa__foto { transition: none; }
   }
   .capa h1 { color: #fff; max-width: 17ch; }
   .capa .olho { color: #9DB0FF; }
@@ -135,3 +169,35 @@ const projetos = (await getCollection('projetos'))
   .mais { margin-top: 2rem; font-family: var(--fonte-titulo); font-weight: 600; }
   .mais a { text-decoration: none; }
 </style>
+
+<script>
+  // A rotação busca cada foto só quando ela vai entrar: a home carrega uma
+  // imagem, não seis.
+  const fotos = Array.from(document.querySelectorAll<HTMLImageElement>('.capa__foto'));
+  if (fotos.length > 1) {
+    const desktop = window.matchMedia('(min-width: 900px)');
+    const parado = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function fonte(img: HTMLImageElement) {
+      return (desktop.matches ? img.dataset.desktop : img.dataset.mobile) ?? '';
+    }
+    // a primeira já veio do HTML; na tela larga, troca pela versão maior
+    if (desktop.matches && fotos[0]) fotos[0].src = fonte(fotos[0]);
+
+    let atual = 0;
+    function carregar(i: number) {
+      const img = fotos[i];
+      if (img && !img.src) img.src = fonte(img);
+    }
+    if (!parado.matches) {
+      carregar(1);
+      setInterval(() => {
+        const proxima = (atual + 1) % fotos.length;
+        fotos[atual]?.classList.remove('esta-visivel');
+        fotos[proxima]?.classList.add('esta-visivel');
+        atual = proxima;
+        carregar((proxima + 1) % fotos.length);
+      }, 6500);
+    }
+  }
+</script>

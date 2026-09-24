@@ -1,0 +1,261 @@
+---
+import Base from '../layouts/Base.astro';
+import { ORG } from '../dados';
+
+const atualizacao = '24 de setembro de 2026';
+
+const dados = [
+  {
+    grupo: 'Inscrição em cursos e oficinas',
+    itens: 'Nome do participante, data de nascimento, escola, nome e contato do responsável legal.',
+    finalidade: 'Formar turmas, controlar frequência, emitir declarações e prestar contas a quem financia o projeto.',
+    base: 'Consentimento do responsável legal (art. 7º, I e art. 14) e execução de política pública cultural (art. 7º, III).',
+  },
+  {
+    grupo: 'Cadastro de artistas, bandas e artesãos',
+    itens: 'Nome ou nome artístico, contato, descrição da atividade, dados necessários a contrato e pagamento.',
+    finalidade: 'Selecionar e organizar a programação dos festivais, formalizar participação e comprovar a execução do evento.',
+    base: 'Execução de contrato ou de procedimentos preliminares (art. 7º, V) e obrigação legal e regulatória (art. 7º, II).',
+  },
+  {
+    grupo: 'Listas de presença e atas',
+    itens: 'Nome, assinatura e, quando exigido por edital, documento de identificação.',
+    finalidade: 'Comprovar a realização das atividades perante órgãos financiadores e cumprir o Estatuto da associação.',
+    base: 'Obrigação legal e regulatória (art. 7º, II).',
+  },
+  {
+    grupo: 'Registros fotográficos e audiovisuais',
+    itens: 'Imagem e voz de participantes e do público em atividades da associação.',
+    finalidade: 'Registrar a memória das atividades, prestar contas e divulgar o trabalho da associação.',
+    base: 'Consentimento específico, por meio de autorização de uso de imagem (art. 7º, I).',
+  },
+  {
+    grupo: 'Contato por e-mail e redes sociais',
+    itens: 'Nome, endereço de e-mail e o conteúdo da mensagem enviada.',
+    finalidade: 'Responder à pessoa que procurou a associação.',
+    base: 'Legítimo interesse em responder a quem nos procura (art. 7º, IX).',
+  },
+];
+
+const direitos = [
+  'Confirmar se tratamos dados seus e ter acesso a eles',
+  'Corrigir dados incompletos, inexatos ou desatualizados',
+  'Pedir a anonimização, o bloqueio ou a eliminação de dados desnecessários ou tratados em desacordo com a lei',
+  'Pedir a portabilidade a outro fornecedor de serviço',
+  'Saber com quem compartilhamos seus dados',
+  'Revogar o consentimento a qualquer momento, sem que isso afete o que já foi feito com base nele',
+  'Se opor a um tratamento feito com base em legítimo interesse',
+];
+---
+
+<Base
+  titulo="Privacidade e proteção de dados"
+  descricao="Como a ADECAC coleta, usa, compartilha e protege dados pessoais, conforme a Lei Geral de Proteção de Dados."
+>
+  <section class="topo">
+    <div class="wrap">
+      <p class="olho">Privacidade</p>
+      <h1>Como tratamos dados pessoais</h1>
+      <p class="topo__linha">
+        Esta política explica quais dados pessoais a ADECAC coleta, por que coleta, com quem
+        compartilha e o que você pode exigir de nós. Ela segue a Lei Geral de Proteção de Dados
+        — <strong>Lei 13.709/2018</strong>.
+      </p>
+      <p class="topo__data">Atualizada em {atualizacao}</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <div class="prosa">
+        <h2>Quem é responsável</h2>
+        <p>
+          A controladora dos dados é a <strong>{ORG.razaoSocial}</strong> (ADECAC), inscrita no
+          CNPJ {ORG.cnpj}, com sede na {ORG.endereco} — {ORG.cep}.
+        </p>
+        <p>
+          Para qualquer assunto relativo a dados pessoais, o canal é
+          <a href={`mailto:${ORG.email}`}>{ORG.email}</a>. Toda solicitação recebida por esse
+          endereço é encaminhada à Diretoria Executiva.
+        </p>
+
+        <h2>Que dados tratamos, e por quê</h2>
+        <p>
+          A ADECAC não faz coleta de dados por curiosidade nem para formar cadastros de marketing.
+          Cada informação abaixo é recolhida porque alguma atividade concreta depende dela.
+        </p>
+      </div>
+
+      <div class="tabela">
+        {dados.map((d) => (
+          <article class="registro">
+            <h3>{d.grupo}</h3>
+            <dl>
+              <div><dt>O que</dt><dd>{d.itens}</dd></div>
+              <div><dt>Para quê</dt><dd>{d.finalidade}</dd></div>
+              <div><dt>Base legal</dt><dd>{d.base}</dd></div>
+            </dl>
+          </article>
+        ))}
+      </div>
+
+      <div class="prosa">
+        <h2>Dados de crianças e adolescentes</h2>
+        <p>
+          Boa parte do que a ADECAC faz é com criança — o curso de música atende a partir dos 7 anos.
+          Dados de crianças e adolescentes recebem o tratamento reforçado que o <strong>art. 14 da
+          LGPD</strong> exige:
+        </p>
+        <ul>
+          <li>
+            A inscrição depende de <strong>consentimento específico e destacado</strong>, dado por
+            pelo menos um dos pais ou pelo responsável legal.
+          </li>
+          <li>
+            Pedimos apenas o mínimo necessário para a matrícula e o acompanhamento pedagógico.
+            Nenhum dado de criança é condição para participar de brincadeira, jogo ou atividade.
+          </li>
+          <li>
+            A publicação de imagem de criança depende de <strong>autorização de uso de imagem
+            assinada pelo responsável</strong>, e pode ser revogada a qualquer momento.
+          </li>
+          <li>
+            Toda decisão sobre esses dados considera, antes de tudo, o melhor interesse da criança.
+          </li>
+        </ul>
+
+        <h2>Com quem compartilhamos</h2>
+        <p>
+          A ADECAC <strong>não vende dados pessoais e não os cede para fins comerciais</strong>.
+          O compartilhamento acontece apenas nestas situações:
+        </p>
+        <ul>
+          <li>
+            <strong>Órgãos públicos financiadores</strong>, quando o edital exige comprovação de
+            execução — por exemplo a Secretaria da Cultura do Estado de São Paulo (ProAC), o
+            Ministério da Cultura e a Prefeitura de Cajuru.
+          </li>
+          <li>
+            <strong>Parceiros de produção e contabilidade</strong>, no limite estrito do serviço
+            contratado.
+          </li>
+          <li>
+            <strong>Autoridades</strong>, quando houver determinação legal ou judicial.
+          </li>
+        </ul>
+
+        <h2>Por quanto tempo guardamos</h2>
+        <p>
+          Guardamos os dados enquanto durar a finalidade que justificou a coleta. Depois disso,
+          permanecem apenas os que a lei obriga a manter — em especial os que comprovam a aplicação
+          de recurso público, sujeitos aos prazos de prestação de contas e de fiscalização.
+        </p>
+        <p>
+          O acervo histórico da associação, que registra a memória cultural de Cajuru, é preservado
+          em caráter permanente. Documentos com dados pessoais sensíveis desse acervo ficam em
+          guarda interna e não são publicados.
+        </p>
+
+        <h2>Seus direitos</h2>
+        <p>Você pode, a qualquer momento:</p>
+        <ul>
+          {direitos.map((d) => <li>{d}</li>)}
+        </ul>
+        <p>
+          Para exercer qualquer um deles, escreva para <a href={`mailto:${ORG.email}`}>{ORG.email}</a>.
+          Respondemos no menor prazo possível, e informamos desde já que podemos pedir uma
+          confirmação de identidade antes de atender — é uma proteção contra alguém pedir dados
+          alheios se passando por você.
+        </p>
+
+        <h2>Como protegemos</h2>
+        <ul>
+          <li>Documentos com dados pessoais ficam em armazenamento restrito, acessível apenas a quem exerce função na associação.</li>
+          <li>Atas, listas de presença, fichas de inscrição e contratos <strong>não são publicados</strong> neste site.</li>
+          <li>Publicações a partir do acervo passam por revisão prévia, para que nenhum documento com CPF, RG, endereço residencial ou telefone pessoal vá ao ar.</li>
+        </ul>
+
+        <h2>Este site</h2>
+        <p>
+          O site da ADECAC é composto de páginas estáticas. Na prática, isso significa que ele é
+          deliberadamente pobre em coleta de dados:
+        </p>
+        <ul>
+          <li><strong>Não usa cookies</strong> e não pede consentimento para nada, porque não há o que consentir.</li>
+          <li><strong>Não tem ferramenta de análise de audiência</strong>, nem pixel de rede social, nem rastreador de qualquer espécie.</li>
+          <li><strong>Não tem formulário.</strong> O contato é por e-mail e telefone, diretamente com a associação.</li>
+          <li>
+            <strong>As fontes tipográficas são servidas pelo próprio site.</strong> É uma escolha
+            consciente: carregá-las de um serviço externo enviaria o endereço de IP de cada
+            visitante a um terceiro, sem que a pessoa soubesse.
+          </li>
+          <li>
+            O provedor de hospedagem registra dados técnicos de acesso, como endereço de IP,
+            para operar e proteger o serviço. A ADECAC não consulta nem utiliza esses registros.
+          </li>
+        </ul>
+        <p>
+          Os links para Instagram, Facebook e YouTube levam para fora do site. A partir do clique,
+          valem as políticas de privacidade dessas plataformas, sobre as quais a ADECAC não tem
+          controle.
+        </p>
+
+        <h2>Mudanças nesta política</h2>
+        <p>
+          Quando esta política mudar, a data de atualização no topo muda junto. Alterações que
+          afetem direitos serão comunicadas também pelos canais da associação.
+        </p>
+      </div>
+
+      <aside class="aviso">
+        <h2>Sobre este documento</h2>
+        <p>
+          Esta política foi redigida a partir dos documentos do acervo da ADECAC — Estatuto,
+          projetos submetidos a editais, fichas de inscrição, listas e contratos — e descreve o
+          tratamento de dados como ele é praticado hoje.
+        </p>
+        <p>
+          <strong>Ela ainda não passou por revisão jurídica.</strong> Antes de ser tratada como
+          documento definitivo, deve ser lida por advogado, e a associação precisa formalizar a
+          indicação de um encarregado pelo tratamento de dados, conforme o art. 41 da LGPD.
+        </p>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--linha); }
+  .topo h1 { max-width: 18ch; }
+  .topo__linha { font-size: 1.08rem; color: var(--tinta-suave); max-width: 64ch; margin-top: 1rem; }
+  .topo__data { font-size: 0.88rem; color: var(--tinta-suave); margin-top: 1.2rem; }
+
+  .prosa h2 { margin-top: 2.5rem; }
+  .prosa ul { max-width: 68ch; padding-left: 1.2rem; }
+  .prosa li { margin-bottom: 0.6rem; }
+
+  .tabela { display: grid; gap: 1rem; margin: 2rem 0 1rem; }
+  .registro {
+    border: 1px solid var(--linha); border-radius: var(--raio);
+    padding: 1.4rem 1.6rem; background: #fff;
+  }
+  .registro h3 { font-size: 1.05rem; color: var(--marinho); margin-bottom: 1rem; }
+  .registro dl { margin: 0; display: grid; gap: 0.8rem; }
+  .registro div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; }
+  .registro dt {
+    font-family: var(--fonte-titulo); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--azul-escuro);
+  }
+  .registro dd { margin: 0; font-size: 0.96rem; }
+  @media (max-width: 640px) { .registro div { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+  .aviso {
+    margin-top: 3rem; padding: 1.6rem 1.8rem;
+    border-left: 4px solid var(--azul-principal);
+    background: var(--papel-suave); border-radius: 0 var(--raio) var(--raio) 0;
+    max-width: 72ch;
+  }
+  .aviso h2 { font-size: 1.1rem; margin-top: 0; }
+  .aviso p { font-size: 0.96rem; }
+  .aviso p:last-child { margin-bottom: 0; }
+</style>

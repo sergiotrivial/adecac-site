@@ -5,6 +5,9 @@ periodo: 2025 e 2026
 situacao: Ativo
 ordem: 2
 destaque: true
+capa:
+  arquivo: historia-da-musica
+  alt: "Crianças e professores do projeto de música, com clarinete e violão, em sala de aula"
 resumo: Curso de formação musical em escolas públicas de Cajuru, com aulas semanais e apresentação pública ao final.
 ---
 

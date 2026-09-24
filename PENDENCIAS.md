@@ -7,8 +7,11 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 - [ ] **Vídeo da entrevista com a Nana** — subir no canal do YouTube e me passar o link.
       A página já existe e o espaço do player está pronto: basta uma linha no arquivo
       `src/content/projetos/entrevista-maria-fernanda.md`.
-- [ ] **Fotos do curso de História da Música** — colocar na pasta que eu monto a galeria.
-      Hoje a página tem só as 7 artes de divulgação.
+- [ ] **Fotos das crianças com os instrumentos** — não existe nenhuma em pasta alguma do
+      acervo. Procurei em todas. Sem elas, a galeria do curso mostra sala de aula, mas não
+      mostra música acontecendo.
+- [ ] **Revisão jurídica da política de privacidade** e indicação formal de um encarregado
+      pelo tratamento de dados (art. 41 da LGPD).
 - [ ] **Conferir os nomes das atrações.** Deduzi das pastas do acervo e posso ter errado
       grafia: Briltles, Dr. Rocha, Léo, Lesus, Mamutes, Max e Pedrão, Mingo, Old Youngs,
       Elton J, Hanna Trio, Karol Luz, Lobo Guaíra, Serenata, Tico, Domingos e Banda.
@@ -19,8 +22,8 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 
 ## Próximos passos meus
 
-- [ ] **Imagens de header nas demais seções** — Quem somos já tem (foto do grupo sob
-      o banner "Amigos da Cultura"). Faltam Projetos, Transparência e Contato.
+- [ ] **Imagens de header nas demais seções** — Início, Quem somos e o curso de História
+      da Música já têm. Faltam Projetos, Transparência e Contato.
 - [ ] **CMS visual** para você editar textos e trocar fotos sem mexer em código.
 - [ ] **Página de doação** — o briefing registra que o botão do PayPal está solto,
       sem prestação de contas associada.
@@ -33,6 +36,10 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 - [x] Material de divulgação dos dois festivais
 - [x] Páginas novas: curso de História da Música e entrevista com Maria Fernanda
 - [x] Canal do YouTube e perfis corrigidos (@adecac_cajuru, não @adecacdecajuru)
+- [x] Capa rotativa na home, com paisagens da região do Ramal Mogyana
+- [x] Capa em cor cheia no curso de História da Música
+- [x] Política de privacidade e proteção de dados
+- [x] Fontes servidas pelo próprio site, sem pedido a terceiros
 
 ## Nunca publicar
 

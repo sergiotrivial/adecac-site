@@ -26,12 +26,10 @@ const canonica = new URL(Astro.url.pathname, Astro.site ?? 'https://www.adecac.c
     <meta property="og:description" content={descricao} />
     <meta property="og:locale" content="pt_BR" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
-    />
+    <!-- As fontes são servidas pelo próprio site (ver src/styles/fontes.css):
+         nenhum pedido sai para terceiros, nenhum IP de visitante é repassado. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fontes/inter-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fontes/poppins-700-latin.woff2" crossorigin />
   </head>
 
   <body>

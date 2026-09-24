@@ -19,6 +19,7 @@ const acervo = (galerias as Record<string, any[]>)[projeto.id] ?? [];
 const CHAVE_MATERIAL: Record<string, string> = {
   'i-festival-diversidade-cultural': 'material-i-festival',
   'ii-festival-diversidade-cultural': 'material-ii-festival',
+  'historia-da-musica': 'material-historia-da-musica',
 };
 const chaveMaterial = CHAVE_MATERIAL[projeto.id];
 const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMaterial] ?? [] : [];
@@ -26,7 +27,16 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
 
 <Base titulo={d.titulo} descricao={d.resumo}>
   <article>
-    <header class="topo">
+    {d.capa && (
+      <figure class="capa">
+        <picture>
+          <source media="(min-width: 900px)" srcset={`/capas/${d.capa.arquivo}.webp`} />
+          <img src={`/capas/${d.capa.arquivo}-mobile.webp`} alt={d.capa.alt} width="1600" height="1200" />
+        </picture>
+      </figure>
+    )}
+
+    <header class="topo" data-com-capa={d.capa ? '' : undefined}>
       <div class="wrap">
         <p class="voltar"><a href="/projetos/">← Todos os projetos</a></p>
         <div class="topo__meta">
@@ -131,6 +141,12 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
 
 <style>
   .topo { background: var(--papel-suave); padding-block: clamp(2.5rem, 6vw, 4rem); border-bottom: 1px solid var(--linha); }
+
+  /* Capa em cor cheia — projeto em andamento pede presença, não sobriedade.
+     Fica antes do título, com o voltar sobreposto para não perder a navegação. */
+  .capa { margin: 0; line-height: 0; background: var(--marinho); }
+  .capa img { width: 100%; height: auto; display: block; max-height: 62vh; object-fit: cover; }
+  .topo[data-com-capa] { border-top: 4px solid var(--azul-principal); }
   .voltar { font-size: 0.9rem; margin-bottom: 1.4rem; }
   .voltar a { text-decoration: none; }
   .topo__meta { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
