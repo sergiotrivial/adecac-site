@@ -25,7 +25,6 @@ import { ORG, EIXOS } from '../dados';
         height="844"
       />
     </picture>
-    <img class="faixa__marca" src="/logos/ADECAC_simbolo_branca.svg" alt="" aria-hidden="true" />
   </figure>
 
   <section class="secao">
@@ -100,33 +99,6 @@ import { ORG, EIXOS } from '../dados';
     background: var(--marinho); line-height: 0;
   }
   .faixa img { width: 100%; height: auto; display: block; }
-
-  /* Degradê marinho na borda esquerda: sem ele o símbolo branco desaparece
-     sobre as cadeiras claras daquele canto. De quebra, amarra a faixa à
-     paleta da marca. */
-  .faixa::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(95deg,
-      rgba(19, 27, 62, 0.78) 0%,
-      rgba(19, 27, 62, 0.42) 26%,
-      rgba(19, 27, 62, 0) 52%);
-    pointer-events: none;
-  }
-  /* O símbolo entra grande e cortado pelo canto inferior esquerdo, sobre o
-     chão e as cadeiras — nunca sobre rosto de ninguém. */
-  .faixa__marca {
-    position: absolute; z-index: 2;
-    left: -17%; bottom: -52%;
-    width: auto; height: 165%;
-    opacity: 0.26; pointer-events: none;
-  }
-  @media (max-width: 640px) {
-    .faixa::before { background: linear-gradient(100deg,
-      rgba(19, 27, 62, 0.8) 0%, rgba(19, 27, 62, 0.4) 34%, rgba(19, 27, 62, 0) 62%); }
-    /* a faixa fica baixa no celular; um símbolo grande aqui viraria mancha
-       sobre as pessoas, então ele recua para acento de canto */
-    .faixa__marca { left: -9%; bottom: -30%; height: 82%; opacity: 0.3; }
-  }
 
   .missao {
     margin: 1.5rem 0 1.75rem; padding: 1.4rem 1.6rem;
