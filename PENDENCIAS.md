@@ -19,7 +19,8 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 
 ## Próximos passos meus
 
-- [ ] **Imagens de header por seção**, usando fotos do próprio acervo já catalogado.
+- [ ] **Imagens de header nas demais seções** — Quem somos já tem (foto do grupo sob
+      o banner "Amigos da Cultura"). Faltam Projetos, Transparência e Contato.
 - [ ] **CMS visual** para você editar textos e trocar fotos sem mexer em código.
 - [ ] **Página de doação** — o briefing registra que o botão do PayPal está solto,
       sem prestação de contas associada.
