@@ -14763,5 +14763,14 @@
    "grupo": "Inscrições",
    "alt": "Arte de inscrições abertas do projeto"
   }
+ ],
+ "material-palestra-arena-virtual": [
+  {
+   "arquivo": "material-palestra-arena-virtual-m001",
+   "largura": 488,
+   "altura": 740,
+   "grupo": "Convite",
+   "alt": "Capa do convite da palestra Rumo a uma Arena Virtual, de JFernando Arena"
+  }
  ]
 }

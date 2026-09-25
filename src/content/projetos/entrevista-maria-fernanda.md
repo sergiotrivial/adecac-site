@@ -2,8 +2,8 @@
 titulo: "Entrevista com Maria Fernanda Elias Maglio"
 eixo: Memória
 periodo: 9 de setembro de 2020
+inicio: 2020-09-09
 situacao: Realizado
-ordem: 7
 resumo: Conversa ao vivo com a escritora e defensora pública, vencedora do Prêmio Jabuti de 2018.
 ---
 

@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const projetos = (await getCollection('projetos')).sort((a, b) => a.data.ordem - b.data.ordem);
+const projetos = (await getCollection('projetos')).sort((a, b) => b.data.inicio.getTime() - a.data.inicio.getTime());
 ---
 
 <Base

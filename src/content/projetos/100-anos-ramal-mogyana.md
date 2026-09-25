@@ -2,8 +2,8 @@
 titulo: Evento Cultural 100 Anos do Ramal Mogyana
 eixo: Memória
 periodo: 15 de julho de 2013
+inicio: 2013-07-15
 situacao: Realizado
-ordem: 5
 destaque: true
 resumo: Reprodução fiel do Banquete de Inauguração da Estrada de Ferro de 1912, na Fazenda Santa Cecília.
 numeros:

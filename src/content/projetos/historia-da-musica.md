@@ -2,12 +2,16 @@
 titulo: "História da Música, Percepção Rítmica e Melódica"
 eixo: Formação
 periodo: 2025 e 2026
+inicio: 2025-01-01
 situacao: Ativo
-ordem: 2
 destaque: true
 capa:
   arquivo: historia-da-musica
   alt: "Crianças e professores do projeto de música, com clarinete e violão, em sala de aula"
+instagram:
+  url: https://www.instagram.com/orquestrandocomarte/
+  nome: '@orquestrandocomarte'
+  titulo: Orquestrando a vida
 resumo: Curso de formação musical em escolas públicas de Cajuru, com aulas semanais e apresentação pública ao final.
 ---
 

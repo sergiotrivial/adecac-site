@@ -2,8 +2,8 @@
 titulo: Representação no COMCULT e no FUMCULT
 eixo: Memória
 periodo: Desde julho de 2020
+inicio: 2020-07-23
 situacao: Ativo
-ordem: 8
 resumo: Dois representantes indicados nos conselhos municipais de cultura, com atuação na Lei Aldir Blanc.
 ---
 

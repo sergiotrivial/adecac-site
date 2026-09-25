@@ -2,8 +2,8 @@
 titulo: A Música Transformando Pessoas
 eixo: Formação
 periodo: Desde julho de 2017
+inicio: 2017-07-01
 situacao: Ativo
-ordem: 1
 destaque: true
 resumo: Aulas gratuitas de cordas, com instrumento fornecido. Deu origem à Orquestra de Cordas de Cajuru.
 numeros:
