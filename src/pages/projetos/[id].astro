@@ -13,7 +13,11 @@ const { projeto } = Astro.props;
 const { Content } = await render(projeto);
 const d = projeto.data;
 
-const acervo = (galerias as Record<string, any[]>)[projeto.id] ?? [];
+// Em construção a página existe, mas não publica nada do que está escrito —
+// só o aviso. Ver o campo `emConstrucao` em content.config.ts.
+const obra = d.emConstrucao;
+
+const acervo = obra ? [] : (galerias as Record<string, any[]>)[projeto.id] ?? [];
 
 // alguns projetos têm material gráfico digitalizado além das fotos
 const CHAVE_MATERIAL: Record<string, string> = {
@@ -29,12 +33,12 @@ const DESCRICAO_MATERIAL: Record<string, string> = {
 };
 const descricaoMaterial = DESCRICAO_MATERIAL[projeto.id]
   ?? 'Programa, expositores e patrocinadores da edição — peças originais do evento, digitalizadas.';
-const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMaterial] ?? [] : [];
+const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[chaveMaterial] ?? [] : [];
 ---
 
 <Base titulo={d.titulo} descricao={d.resumo}>
   <article>
-    {d.capa && (
+    {d.capa && !obra && (
       <figure class="capa">
         <picture>
           <source media="(min-width: 900px)" srcset={`/capas/${d.capa.arquivo}.webp`} />
@@ -47,15 +51,21 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
       <div class="wrap">
         <p class="voltar"><a href="/projetos/">← Todos os projetos</a></p>
         <div class="topo__meta">
-          <span class="etiqueta">{d.eixo}</span>
-          <span class="topo__situacao" data-situacao={d.situacao}>{d.situacao}</span>
+          {obra ? (
+            <span class="etiqueta etiqueta--obra">Em construção</span>
+          ) : (
+            <>
+              <span class="etiqueta">{d.eixo}</span>
+              <span class="topo__situacao" data-situacao={d.situacao}>{d.situacao}</span>
+            </>
+          )}
         </div>
         <h1>{d.titulo}</h1>
-        <p class="topo__periodo">{d.periodo}</p>
+        {!obra && <p class="topo__periodo">{d.periodo}</p>}
       </div>
     </header>
 
-    {d.numeros.length > 0 && (
+    {d.numeros.length > 0 && !obra && (
       <section class="faixa">
         <div class="wrap">
           <ul class="numeros">
@@ -70,12 +80,23 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
     <section class="secao">
       <div class="wrap">
       <div class="prosa corpo">
-        <Content />
+        {obra ? (
+          <div class="obra">
+            <h2>Esta parte está sendo construída</h2>
+            <p>
+              Estamos reunindo e organizando o material desta seção no acervo da associação.
+              Ela vai ao ar assim que houver o que publicar com segurança.
+            </p>
+            <p class="obra__saida"><a href="/projetos/">Ver os outros projetos</a></p>
+          </div>
+        ) : (
+          <Content />
+        )}
       </div>
     </div>
   </section>
 
-    {d.video && (
+    {d.video && !obra && (
       <section class="secao video">
         <div class="wrap">
           <p class="olho">Assista</p>
@@ -111,7 +132,7 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
       />
     )}
 
-    {d.instagram && (
+    {d.instagram && !obra && (
       <section class="secao acompanhe">
         <div class="wrap">
           <p class="olho">Acompanhe</p>
@@ -128,7 +149,7 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
       </section>
     )}
 
-    {d.creditos.length > 0 && (
+    {d.creditos.length > 0 && !obra && (
       <section class="secao secao--suave">
         <div class="wrap">
           <h2>Ficha técnica</h2>
@@ -163,6 +184,7 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
     background: #EDF0FF; color: var(--azul-escuro);
     padding: 0.32em 0.7em; border-radius: 99px;
   }
+  .etiqueta--obra { background: #fff; color: var(--tinta-suave); border: 1px solid var(--linha); }
   .topo__situacao { font-size: 0.85rem; color: var(--tinta-suave); }
   .topo__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }
   .topo h1 { max-width: 22ch; }
@@ -178,6 +200,16 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
 
   .corpo :global(h2) { margin-top: 2rem; }
   .corpo :global(strong) { color: var(--marinho); }
+
+  /* aviso de seção em construção: sóbrio, sem promessa de data */
+  .obra {
+    border: 1px solid var(--linha); border-left: 4px solid var(--azul-principal);
+    border-radius: var(--raio); background: var(--papel-suave);
+    padding: clamp(1.4rem, 4vw, 2.2rem); max-width: 60ch;
+  }
+  .obra h2 { margin-top: 0; font-size: 1.25rem; }
+  .obra p { color: var(--tinta-suave); margin-bottom: 0; }
+  .obra__saida { margin-top: 1.2rem; }
 
   .video__moldura {
     position: relative; width: 100%; max-width: 900px;

@@ -7,7 +7,7 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
 
 <Base
   titulo="Projetos"
-  descricao="Os projetos realizados pela ADECAC: A Música Transformando Pessoas, os Festivais da Diversidade Cultural, os 100 Anos do Ramal Mogyana e o Memorial Cajuru."
+  descricao="Os projetos realizados pela ADECAC: A Música Transformando Pessoas, os Festivais da Diversidade Cultural, os 100 Anos do Ramal Mogyana e a História da Música."
 >
   <section class="topo">
     <div class="wrap">
@@ -24,20 +24,32 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     <div class="wrap">
       <ul class="lista">
         {projetos.map((p) => (
-          <li class="item">
+          <li class="item" data-obra={p.data.emConstrucao ? '' : undefined}>
             <div class="item__meta">
-              <span class="etiqueta">{p.data.eixo}</span>
-              <span class="item__situacao" data-situacao={p.data.situacao}>{p.data.situacao}</span>
-              <span class="item__periodo">{p.data.periodo}</span>
+              {p.data.emConstrucao ? (
+                <span class="etiqueta etiqueta--obra">Em construção</span>
+              ) : (
+                <>
+                  <span class="etiqueta">{p.data.eixo}</span>
+                  <span class="item__situacao" data-situacao={p.data.situacao}>{p.data.situacao}</span>
+                  <span class="item__periodo">{p.data.periodo}</span>
+                </>
+              )}
             </div>
             <h2><a href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h2>
-            <p class="item__resumo">{p.data.resumo}</p>
-            {p.data.numeros.length > 0 && (
-              <ul class="mini">
-                {p.data.numeros.map((n) => (
-                  <li><strong>{n.valor}</strong> {n.rotulo}</li>
-                ))}
-              </ul>
+            {p.data.emConstrucao ? (
+              <p class="item__resumo">Estamos reunindo o material desta parte. Ela vai ao ar assim que estiver pronta.</p>
+            ) : (
+              <>
+                <p class="item__resumo">{p.data.resumo}</p>
+                {p.data.numeros.length > 0 && (
+                  <ul class="mini">
+                    {p.data.numeros.map((n) => (
+                      <li><strong>{n.valor}</strong> {n.rotulo}</li>
+                    ))}
+                  </ul>
+                )}
+              </>
             )}
           </li>
         ))}
@@ -61,6 +73,8 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     background: #EDF0FF; color: var(--azul-escuro);
     padding: 0.32em 0.7em; border-radius: 99px;
   }
+  .etiqueta--obra { background: var(--papel-suave); color: var(--tinta-suave); }
+  .item[data-obra] .item__resumo { font-style: italic; }
   .item__situacao { font-size: 0.82rem; color: var(--tinta-suave); }
   .item__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }
   .item__periodo { font-size: 0.82rem; color: var(--tinta-suave); }
