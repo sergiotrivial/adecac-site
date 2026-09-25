@@ -57,6 +57,9 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
             <h3>{eixo.nome}</h3>
             <p class="eixo__resumo">{eixo.resumo}</p>
             <p class="eixo__detalhe">{eixo.detalhe}</p>
+            <figure class="eixo__foto">
+              <img src={`/eixos/${eixo.foto}.webp`} alt={eixo.fotoAlt} width="800" height="600" loading="lazy" decoding="async" />
+            </figure>
           </article>
         ))}
       </div>
@@ -140,7 +143,17 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
   }
   .eixo h3 { margin: 0.4rem 0 0.6rem; font-size: 1.35rem; }
   .eixo__resumo { font-weight: 600; color: var(--tinta); }
-  .eixo__detalhe { color: var(--tinta-suave); font-size: 0.96rem; }
+  .eixo__detalhe { color: var(--tinta-suave); font-size: 0.96rem; margin-bottom: auto; }
+
+  /* Mesmas três imagens de Quem somos — o verbo acontecendo. `margin-bottom:
+     auto` no detalhe alinha as fotos na mesma linha, apesar de os textos terem
+     alturas diferentes. Arquivos em public/eixos/, 800x600. */
+  .eixo { display: flex; flex-direction: column; }
+  .eixo__foto { margin: 1.6rem 0 0; }
+  .eixo__foto img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: var(--raio); background: var(--papel-suave);
+  }
 
   .numeros { margin-top: 2.5rem; }
   .numero strong {
