@@ -33,25 +33,36 @@ export const ORG = {
   slogan: 'Cultura que Conecta. Arte que Transforma.',
 } as const;
 
-/* Os três eixos do briefing §3 — nesta ordem, sempre. */
+/* Os três eixos do briefing §3 — nesta ordem, sempre.
+   `foto` aponta para public/eixos/<foto>.webp (800x600), uma imagem que
+   mostra o verbo acontecendo — não ilustração genérica. */
 export const EIXOS = [
   {
     nome: 'Memória',
     resumo: 'Preservar e dar acesso ao passado de Cajuru.',
     detalhe:
       'O Memorial Cajuru e o evento dos 100 Anos do Ramal Mogyana nasceram da mesma convicção: uma cidade que não guarda a própria história perde a chance de entendê-la.',
+    foto: 'memoria',
+    fotoAlt:
+      'Painel com fotografia histórica do Ramal Mogyana exposto sobre as mesas do evento dos 100 Anos, na Fazenda Santa Cecília',
   },
   {
     nome: 'Formação',
     resumo: 'Ensinar, capacitar, abrir caminhos.',
     detalhe:
       'A Música Transformando Pessoas oferece aulas gratuitas de cordas com instrumento incluso. Foi dele que nasceu a Orquestra de Cordas de Cajuru.',
+    foto: 'formacao',
+    fotoAlt:
+      'Professor diante da lousa com figuras rítmicas, em aula do projeto de música numa escola de Cajuru',
   },
   {
     nome: 'Celebração',
     resumo: 'Reunir a comunidade e dar palco ao artista local.',
     detalhe:
       'Duas edições do Festival da Diversidade Cultural reuniram cerca de 550 pessoas e 61 artistas da região em praça pública.',
+    foto: 'celebracao',
+    fotoAlt:
+      'Músicos reunidos no palco ao fim de uma apresentação do Festival ADECAC da Diversidade Cultural',
   },
 ] as const;
 

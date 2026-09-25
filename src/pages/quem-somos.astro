@@ -67,6 +67,9 @@ import { ORG, EIXOS } from '../dados';
             <h3>{eixo.nome}</h3>
             <p class="eixo__resumo">{eixo.resumo}</p>
             <p class="eixo__detalhe">{eixo.detalhe}</p>
+            <figure class="eixo__foto">
+              <img src={`/eixos/${eixo.foto}.webp`} alt={eixo.fotoAlt} width="800" height="600" loading="lazy" decoding="async" />
+            </figure>
           </article>
         ))}
       </div>
@@ -113,4 +116,15 @@ import { ORG, EIXOS } from '../dados';
   .eixo h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
   .eixo__resumo { font-weight: 600; }
   .eixo__detalhe { color: var(--tinta-suave); font-size: 0.96rem; }
+
+  /* A foto fecha a coluna: o verbo dito e, logo abaixo, o verbo acontecendo.
+     `margin-top: auto` alinha as três fotos na mesma linha, mesmo quando os
+     textos têm alturas diferentes. Arquivos em public/eixos/, 800x600. */
+  .eixo { display: flex; flex-direction: column; }
+  .eixo__foto { margin: 1.5rem 0 0; }
+  .eixo__foto img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: var(--raio); background: var(--papel-suave);
+  }
+  .eixo__detalhe { margin-bottom: auto; }
 </style>
