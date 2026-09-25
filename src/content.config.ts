@@ -13,6 +13,9 @@ const projetos = defineCollection({
     // permite: dia exato quando conhecido, 1º de janeiro quando só há o ano.
     // O que aparece na tela é o campo `periodo`.
     inicio: z.coerce.date(),
+    // Projeto encerrado que segue na home por peso institucional. Os que
+    // estão em andamento aparecem lá de qualquer forma, sem precisar disto.
+    destaque: z.boolean().default(false),
     // Números só entram aqui com lastro no acervo — briefing §6.3.
     numeros: z.array(z.object({ valor: z.string(), rotulo: z.string() })).default([]),
     creditos: z.array(z.object({ papel: z.string(), quem: z.string() })).default([]),
