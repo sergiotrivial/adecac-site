@@ -4,7 +4,7 @@ import { ORG, EIXOS } from '../dados';
 import { getCollection } from 'astro:content';
 import capas from '../capas-home.json';
 
-const projetos = (await getCollection('projetos'))
+const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunho)
   // a home mostra o que está em andamento e os encerrados de maior peso;
   // o histórico completo fica na página de projetos
   .filter((p) => p.data.situacao === 'Ativo' || p.data.destaque)

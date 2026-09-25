@@ -8,6 +8,9 @@ const projetos = defineCollection({
     eixo: z.enum(['Memória', 'Formação', 'Celebração']),
     periodo: z.string(),
     situacao: z.enum(['Ativo', 'Realizado', 'Descontinuado']),
+    // Em rascunho o projeto não gera página nem aparece em lista alguma.
+    // Serve para segurar no repositório o que ainda não está pronto para o ar.
+    rascunho: z.boolean().default(false),
     resumo: z.string(),
     // Data de início, usada só para ordenar. A precisão é a que o acervo
     // permite: dia exato quando conhecido, 1º de janeiro quando só há o ano.

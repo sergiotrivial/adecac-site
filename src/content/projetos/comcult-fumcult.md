@@ -4,6 +4,7 @@ eixo: Memória
 periodo: Desde julho de 2020
 inicio: 2020-07-23
 situacao: Ativo
+rascunho: true
 resumo: Dois representantes indicados nos conselhos municipais de cultura, com atuação na Lei Aldir Blanc.
 ---
 

@@ -5,7 +5,7 @@ import Galeria from '../../components/Galeria.astro';
 import galerias from '../../galerias.json';
 
 export async function getStaticPaths() {
-  const projetos = await getCollection('projetos');
+  const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunho);
   return projetos.map((projeto) => ({ params: { id: projeto.id }, props: { projeto } }));
 }
 
