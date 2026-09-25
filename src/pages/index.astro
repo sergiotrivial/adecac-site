@@ -116,12 +116,17 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     padding-block: clamp(4rem, 11vw, 8rem);
   }
   .capa__fotos { position: absolute; inset: 0; z-index: -2; }
+  /* A foto que entra sobe por cima da anterior, que continua opaca embaixo até
+     a transição acabar. Se as duas fossem transicionadas ao mesmo tempo, no
+     meio do caminho as duas ficariam meio transparentes e o marinho do fundo
+     apareceria — a capa piscava escuro a cada troca. */
   .capa__foto {
     position: absolute; inset: 0;
     width: 100%; height: 100%; object-fit: cover;
     opacity: 0; transition: opacity 1.4s ease;
   }
-  .capa__foto.esta-visivel { opacity: 1; }
+  .capa__foto.esta-visivel { opacity: 1; z-index: 2; }
+  .capa__foto.esta-saindo { opacity: 1; transition: none; z-index: 1; }
   .capa::before {
     content: ''; position: absolute; inset: 0; z-index: -1;
     background: linear-gradient(170deg,
@@ -218,8 +223,14 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     function fonte(img: HTMLImageElement) {
       return (desktop.matches ? img.dataset.desktop : img.dataset.mobile) ?? '';
     }
-    // a primeira já veio do HTML; na tela larga, troca pela versão maior
-    if (desktop.matches && fotos[0]) fotos[0].src = fonte(fotos[0]);
+    // A primeira já veio do HTML na versão de celular. Na tela larga trocamos
+    // pela maior, mas só depois que ela chega: atribuir o src direto deixaria a
+    // capa vazia enquanto o arquivo baixa.
+    if (desktop.matches && fotos[0]) {
+      const alta = new Image();
+      alta.addEventListener('load', () => { fotos[0].src = alta.src; });
+      alta.src = fonte(fotos[0]);
+    }
 
     let atual = 0;
     function carregar(i: number) {
@@ -228,10 +239,15 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     }
     if (!parado.matches) {
       carregar(1);
+      const FUSAO = 1400;   // igual à transição do CSS
       setInterval(() => {
         const proxima = (atual + 1) % fotos.length;
-        fotos[atual]?.classList.remove('esta-visivel');
+        const anterior = fotos[atual];
+        // a que sai segura a imagem no lugar, sem transição, enquanto a nova
+        // aparece por cima; só depois ela é apagada, já escondida
+        anterior?.classList.replace('esta-visivel', 'esta-saindo');
         fotos[proxima]?.classList.add('esta-visivel');
+        setTimeout(() => anterior?.classList.remove('esta-saindo'), FUSAO);
         atual = proxima;
         carregar((proxima + 1) % fotos.length);
       }, 6500);
