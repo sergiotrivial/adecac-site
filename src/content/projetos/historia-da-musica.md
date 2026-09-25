@@ -11,22 +11,14 @@ capa:
 resumo: Curso de formação musical em escolas públicas de Cajuru, com aulas semanais e apresentação pública ao final.
 ---
 
-O curso leva formação musical para dentro da escola pública. São **aulas semanais presenciais**,
-em formato de oficina, ministradas por educadores musicais e artistas convidados — na EMEB
-Aparecida Elias Draibe e na EMEB Januário Benvenuto.
+O projeto propõe uma jornada envolvente pela história da música, aliada ao desenvolvimento
+da percepção rítmica e melódica. De forma prática e acessível, os alunos exploram sons, ritmos
+e estilos, estimulando criatividade, concentração e sensibilidade artística.
 
-O programa se organiza em três módulos: **som, cultura e identidade musical**; **ritmo, corpo e
-escrita musical**; e **melodia, harmonia e criação musical**. Na prática, isso é escuta ativa,
-jogos rítmicos, percussão corporal, canto coletivo, leitura musical básica e criação em grupo.
+Educar com música é despertar talentos, fortalecer a cultura e ampliar horizontes.
 
-Ao final do percurso, os participantes fazem uma **apresentação pública**, reunindo o que
-aprenderam de técnica e de criação.
+## Onde e quando
 
-## Quem pode participar
+**EMEB Januário Benvenuto** — aulas às terças e quintas-feiras, das 12h30 às 14h10.
 
-O curso é aberto a estudantes da rede pública, a educadores e artistas da comunidade e a
-qualquer pessoa interessada em música que não teve acesso a formação formal. A faixa etária
-começa aos 7 anos, com turmas organizadas por idade.
-
-A seleção prioriza a democratização do acesso à formação musical, considerando a diversidade
-social, etária e cultural da comunidade.
+**EMEB Aparecida Elias Draibe** — aulas às segundas e quartas-feiras, das 12h30 às 14h10.

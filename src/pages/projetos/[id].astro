@@ -22,6 +22,11 @@ const CHAVE_MATERIAL: Record<string, string> = {
   'historia-da-musica': 'material-historia-da-musica',
 };
 const chaveMaterial = CHAVE_MATERIAL[projeto.id];
+const DESCRICAO_MATERIAL: Record<string, string> = {
+  'historia-da-musica': 'Artes de divulgação do projeto, usadas nas redes sociais e nas escolas.',
+};
+const descricaoMaterial = DESCRICAO_MATERIAL[projeto.id]
+  ?? 'Programa, expositores e patrocinadores da edição — peças originais do evento, digitalizadas.';
 const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMaterial] ?? [] : [];
 ---
 
@@ -100,7 +105,7 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
         fotos={material}
         pasta={chaveMaterial}
         titulo="Material de divulgação"
-        descricao="Programa, expositores e patrocinadores da edição — peças originais do evento, digitalizadas."
+        descricao={descricaoMaterial}
       />
     )}
 
@@ -145,7 +150,7 @@ const material = chaveMaterial ? (galerias as Record<string, any[]>)[chaveMateri
   /* Capa em cor cheia — projeto em andamento pede presença, não sobriedade.
      Fica antes do título, com o voltar sobreposto para não perder a navegação. */
   .capa { margin: 0; line-height: 0; background: var(--marinho); }
-  .capa img { width: 100%; height: auto; display: block; max-height: 62vh; object-fit: cover; }
+  .capa img { width: 100%; height: auto; display: block; }
   .topo[data-com-capa] { border-top: 4px solid var(--azul-principal); }
   .voltar { font-size: 0.9rem; margin-bottom: 1.4rem; }
   .voltar a { text-decoration: none; }

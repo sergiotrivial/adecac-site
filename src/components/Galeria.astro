@@ -92,7 +92,7 @@ const grupos = agrupar
                 })}
               />
               <button class="galeria__mais" type="button" data-mais>
-                Ver as outras {resto.length} fotos
+                {resto.length === 1 ? 'Ver a outra foto' : `Ver as outras ${resto.length} fotos`}
               </button>
             </>
           )}

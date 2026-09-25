@@ -11,7 +11,7 @@ export const ORG = {
   natureza: 'Entidade civil de direito privado, sem fins econômicos',
   endereco: 'Rua Sampaio Moreira, 1018 — Centro — Cajuru/SP',
   cep: 'CEP 14240-017',
-  email: 'contato@adecac.com.br',
+  email: 'adecacdecajuru@gmail.com',
   telefone: '(16) 3667-3503',
   telefoneLink: '+551636673503',
   // Corrigido em 22/09/2026: o §2 do briefing traz '@adecacdecajuru', que não existe.
