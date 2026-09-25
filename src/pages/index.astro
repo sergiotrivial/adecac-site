@@ -91,7 +91,12 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
             </div>
             <h3><a href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h3>
             <p class="card__periodo">{p.data.periodo}</p>
-            <p>{p.data.resumo}</p>
+            <p class="card__resumo">{p.data.resumo}</p>
+            {p.data.fundo && (
+              <a class="card__foto" href={`/projetos/${p.id}/`} tabindex="-1" aria-hidden="true">
+                <img src={`/fundos/${p.data.fundo.arquivo}-cartao.webp`} alt="" width="800" height="600" loading="lazy" decoding="async" />
+              </a>
+            )}
           </article>
         ))}
       </div>
@@ -167,7 +172,24 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
   .card {
     background: #fff; border: 1px solid var(--linha);
     border-radius: var(--raio); padding: 1.75rem;
+    display: flex; flex-direction: column; overflow: hidden;
   }
+  /* A foto fecha o cartão de borda a borda: as margens negativas desfazem o
+     padding, e o `margin-top: auto` a empurra para o fim, alinhando as fotos
+     dos três cartões mesmo com resumos de alturas diferentes.
+     O alt é vazio de propósito — o link do título já diz para onde se vai, e
+     repetir a descrição aqui só faria o leitor de tela anunciar duas vezes.
+     Arquivos em public/fundos/, sufixo `-cartao`, 800x600. */
+  .card__resumo { margin-bottom: 1.75rem; }
+  .card__foto {
+    display: block; margin: auto -1.75rem -1.75rem; line-height: 0;
+    background: var(--papel-suave);
+  }
+  .card__foto img {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .card:hover .card__foto img { transform: scale(1.04); }
   .card__meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
   .etiqueta {
     font-family: var(--fonte-titulo); font-size: 0.72rem; font-weight: 600;
