@@ -4,7 +4,6 @@ eixo: Formação
 periodo: 2025 e 2026
 inicio: 2025-01-01
 situacao: Ativo
-destaque: true
 capa:
   arquivo: historia-da-musica
   alt: "Crianças e professores do projeto de música, com clarinete e violão, em sala de aula"

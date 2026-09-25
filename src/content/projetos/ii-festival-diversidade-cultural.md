@@ -4,7 +4,6 @@ eixo: Celebração
 periodo: 30 de novembro de 2024
 inicio: 2024-11-30
 situacao: Realizado
-destaque: true
 resumo: Segunda edição do festival, com 46 artistas locais e a Orquestra de Cordas de Cajuru no palco.
 numeros:
   - valor: "~300"

@@ -13,7 +13,6 @@ const projetos = defineCollection({
     // permite: dia exato quando conhecido, 1º de janeiro quando só há o ano.
     // O que aparece na tela é o campo `periodo`.
     inicio: z.coerce.date(),
-    destaque: z.boolean().default(false),
     // Números só entram aqui com lastro no acervo — briefing §6.3.
     numeros: z.array(z.object({ valor: z.string(), rotulo: z.string() })).default([]),
     creditos: z.array(z.object({ papel: z.string(), quem: z.string() })).default([]),
