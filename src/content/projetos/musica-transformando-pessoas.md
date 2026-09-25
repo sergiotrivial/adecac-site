@@ -1,9 +1,9 @@
 ---
 titulo: A Música Transformando Pessoas
 eixo: Formação
-periodo: Desde julho de 2017
+periodo: Iniciado em julho de 2017
 inicio: 2017-07-01
-situacao: Ativo
+situacao: Realizado
 destaque: true
 resumo: Aulas gratuitas de cordas, com instrumento fornecido. Deu origem à Orquestra de Cordas de Cajuru.
 numeros:
@@ -28,11 +28,12 @@ creditos:
     quem: Com Arte Produções
 ---
 
-O projeto oferece cursos gratuitos de **violino, viola de orquestra, violoncelo e contrabaixo
-acústico** para jovens de Cajuru. O instrumento é fornecido pela associação — sem essa parte,
+O projeto ofereceu cursos gratuitos de **violino, viola de orquestra, violoncelo e contrabaixo
+acústico** para jovens de Cajuru. O instrumento era fornecido pela associação — sem essa parte,
 a maioria das famílias não teria como começar.
 
-Desde julho de 2017, 79 jovens passaram pelas aulas e 25 instrumentos estão em uso. Hoje o
-projeto tem fila de espera.
+A partir de julho de 2017, **79 jovens** passaram pelas aulas e **25 instrumentos** foram
+fornecidos. A procura superou a capacidade, e o projeto chegou a manter fila de espera.
 
-Foi dele que nasceu a **Orquestra de Cordas de Cajuru**, formada pelos próprios alunos.
+Foi dele que nasceu a **Orquestra de Cordas de Cajuru**, formada pelos próprios alunos — que
+segue tocando, como mostram as apresentações nos festivais da associação.
