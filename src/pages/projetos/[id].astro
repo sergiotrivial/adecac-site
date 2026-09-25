@@ -119,7 +119,9 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
         fotos={acervo}
         pasta={projeto.id}
         titulo="Galeria"
-        descricao="Registros do acervo da associação. Clique em qualquer imagem para ampliar."
+        descricao={d.fotografia
+          ? `Fotografias de ${d.fotografia}, do acervo da associação. Clique em qualquer imagem para ampliar.`
+          : 'Registros do acervo da associação. Clique em qualquer imagem para ampliar.'}
       />
     )}
 

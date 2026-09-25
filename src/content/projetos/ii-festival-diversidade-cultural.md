@@ -18,6 +18,10 @@ numeros:
     rotulo: artesãos
   - valor: "15"
     rotulo: atrações musicais
+fotografia: Luciene Belleboni
+creditos:
+  - papel: Fotografia
+    quem: Luciene Belleboni
 ---
 
 A segunda edição ampliou a primeira em todas as frentes: mais artistas, mais artesãos e mais

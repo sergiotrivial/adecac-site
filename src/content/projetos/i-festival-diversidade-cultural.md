@@ -16,6 +16,10 @@ numeros:
     rotulo: bandas
   - valor: "10"
     rotulo: artesãos
+fotografia: Luciene Belleboni
+creditos:
+  - papel: Fotografia
+    quem: Luciene Belleboni
 ---
 
 A primeira edição colocou 12 bandas da região no palco e abriu espaço para 10 artesãos locais.

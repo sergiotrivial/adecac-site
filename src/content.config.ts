@@ -26,6 +26,9 @@ const projetos = defineCollection({
     // Números só entram aqui com lastro no acervo — briefing §6.3.
     numeros: z.array(z.object({ valor: z.string(), rotulo: z.string() })).default([]),
     creditos: z.array(z.object({ papel: z.string(), quem: z.string() })).default([]),
+    // Quem fotografou o evento. Aparece junto da galeria, onde o crédito é
+    // devido, além da ficha técnica.
+    fotografia: z.string().optional(),
     instagram: z.object({ url: z.string().url(), nome: z.string(), titulo: z.string() }).optional(),
     // id do vídeo no YouTube; quando presente, a página incorpora o player
     video: z.object({ youtube: z.string(), titulo: z.string() }).optional(),

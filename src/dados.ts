@@ -44,7 +44,7 @@ export const EIXOS = [
       'O Memorial Cajuru e o evento dos 100 Anos do Ramal Mogyana nasceram da mesma convicção: uma cidade que não guarda a própria história perde a chance de entendê-la.',
     foto: 'memoria',
     fotoAlt:
-      'Painel com fotografia histórica do Ramal Mogyana exposto sobre as mesas do evento dos 100 Anos, na Fazenda Santa Cecília',
+      'Estação Sampaio Moreira, do antigo Ramal Mogyana, com o nome ainda legível na fachada de tijolo',
   },
   {
     nome: 'Formação',
