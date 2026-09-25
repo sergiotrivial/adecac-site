@@ -123,7 +123,7 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
   .capa__foto {
     position: absolute; inset: 0;
     width: 100%; height: 100%; object-fit: cover;
-    opacity: 0; transition: opacity 1.4s ease;
+    opacity: 0; transition: opacity 1s ease;
   }
   .capa__foto.esta-visivel { opacity: 1; z-index: 2; }
   .capa__foto.esta-saindo { opacity: 1; transition: none; z-index: 1; }
@@ -239,7 +239,8 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     }
     if (!parado.matches) {
       carregar(1);
-      const FUSAO = 1400;   // igual à transição do CSS
+      const FUSAO = 1000;   // igual à transição do CSS
+      const PAUSA = 4500;   // quanto cada foto fica parada, mais a fusão
       setInterval(() => {
         const proxima = (atual + 1) % fotos.length;
         const anterior = fotos[atual];
@@ -250,7 +251,7 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
         setTimeout(() => anterior?.classList.remove('esta-saindo'), FUSAO);
         atual = proxima;
         carregar((proxima + 1) % fotos.length);
-      }, 6500);
+      }, PAUSA);
     }
   }
 </script>
