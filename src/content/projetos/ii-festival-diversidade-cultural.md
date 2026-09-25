@@ -6,6 +6,9 @@ inicio: 2024-11-30
 situacao: Realizado
 destaque: true
 resumo: Segunda edição do festival, com 46 artistas locais e a Orquestra de Cordas de Cajuru no palco.
+fundo:
+  arquivo: ii-festival-diversidade-cultural
+  alt: Banda no palco do II Festival ADECAC da Diversidade Cultural
 numeros:
   - valor: "~300"
     rotulo: pessoas

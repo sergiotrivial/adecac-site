@@ -31,6 +31,10 @@ const projetos = defineCollection({
     video: z.object({ youtube: z.string(), titulo: z.string() }).optional(),
     // capa em cor cheia, para projetos com arte própria
     capa: z.object({ arquivo: z.string(), alt: z.string() }).optional(),
+    // Foto de fundo do cartão do projeto na lista. Os arquivos ficam em
+    // public/fundos/: `<arquivo>.webp` para o desktop e `<arquivo>-mobile.webp`
+    // para o celular — os dois são gerados a partir de um único original.
+    fundo: z.object({ arquivo: z.string(), alt: z.string() }).optional(),
   }),
 });
 

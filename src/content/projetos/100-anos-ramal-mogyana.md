@@ -5,6 +5,9 @@ periodo: 15 de julho de 2013
 inicio: 2013-07-15
 situacao: Realizado
 resumo: Reprodução fiel do Banquete de Inauguração da Estrada de Ferro de 1912, na Fazenda Santa Cecília.
+fundo:
+  arquivo: 100-anos-ramal-mogyana
+  alt: Mesa posta para o banquete dos 100 Anos do Ramal Mogyana, na Fazenda Santa Cecília
 numeros:
   - valor: "300"
     rotulo: pessoas

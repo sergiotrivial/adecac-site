@@ -5,6 +5,9 @@ periodo: 1º de novembro de 2019
 inicio: 2019-11-01
 situacao: Realizado
 resumo: Palestra do Dr. José Fernando Arena sobre as quatro revoluções industriais e seus efeitos na medicina e nas comunidades.
+fundo:
+  arquivo: palestra-arena-virtual
+  alt: Fundo em desfoque, feito a partir do convite da palestra Rumo a uma Arena Virtual
 ---
 
 Em uma sexta-feira de novembro de 2019, às 19h30, a ADECAC recebeu o **Dr. José Fernando

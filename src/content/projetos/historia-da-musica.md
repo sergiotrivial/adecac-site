@@ -12,6 +12,9 @@ instagram:
   nome: '@orquestrandocomarte'
   titulo: Orquestrando a vida
 resumo: Curso de formação musical em escolas públicas de Cajuru, com aulas semanais e apresentação pública ao final.
+fundo:
+  arquivo: historia-da-musica
+  alt: Aula do projeto de música para uma plateia de alunos, em escola de Cajuru
 ---
 
 O projeto propõe uma jornada envolvente pela história da música, aliada ao desenvolvimento

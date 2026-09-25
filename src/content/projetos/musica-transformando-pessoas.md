@@ -5,6 +5,9 @@ periodo: De julho a dezembro de 2017
 inicio: 2017-07-01
 situacao: Realizado
 resumo: Aulas gratuitas de cordas, com instrumento fornecido. Deu origem à Orquestra de Cordas de Cajuru.
+fundo:
+  arquivo: musica-transformando-pessoas
+  alt: Orquestra de Cordas de Cajuru, nascida do projeto, tocando em festival da associação
 numeros:
   - valor: "79"
     rotulo: jovens atendidos

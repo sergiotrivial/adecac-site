@@ -6,6 +6,9 @@ inicio: 2023-12-02
 situacao: Realizado
 destaque: true
 resumo: A primeira edição do festival, com 12 bandas da região e feira de artesanato.
+fundo:
+  arquivo: i-festival-diversidade-cultural
+  alt: Orquestra de Cordas de Cajuru tocando no I Festival ADECAC da Diversidade Cultural
 numeros:
   - valor: "~250"
     rotulo: pessoas

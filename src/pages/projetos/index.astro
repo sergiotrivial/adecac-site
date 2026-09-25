@@ -24,7 +24,13 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     <div class="wrap">
       <ul class="lista">
         {projetos.map((p) => (
-          <li class="item" data-obra={p.data.emConstrucao ? '' : undefined}>
+          <li class="item" data-obra={p.data.emConstrucao ? '' : undefined} data-foto={p.data.fundo ? '' : undefined}>
+            {p.data.fundo && (
+              <picture class="item__fundo">
+                <source media="(min-width: 700px)" srcset={`/fundos/${p.data.fundo.arquivo}.webp`} />
+                <img src={`/fundos/${p.data.fundo.arquivo}-mobile.webp`} alt={p.data.fundo.alt} loading="lazy" decoding="async" />
+              </picture>
+            )}
             <div class="item__meta">
               {p.data.emConstrucao ? (
                 <span class="etiqueta etiqueta--obra">Em construção</span>
@@ -36,7 +42,7 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
                 </>
               )}
             </div>
-            <h2><a href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h2>
+            <h2><a class="item__link" href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h2>
             {p.data.emConstrucao ? (
               <p class="item__resumo">Estamos reunindo o material desta parte. Ela vai ao ar assim que estiver pronta.</p>
             ) : (
@@ -64,8 +70,52 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
   .topo__linha { font-size: 1.1rem; color: var(--tinta-suave); max-width: 62ch; margin-top: 1rem; }
 
   .lista { list-style: none; margin: 0; padding: 0; }
-  .item { padding-block: 2.25rem; border-bottom: 1px solid var(--linha); }
-  .item:first-child { padding-top: 0; }
+  .item { padding-block: 2.25rem; }
+  .item:not([data-foto]):first-child { padding-top: 0; }
+  /* Cartão com foto de fundo. O texto fica por cima, e a legibilidade vem de
+     um degradê escuro — não de escurecer a foto no arquivo. Assim, trocar a
+     imagem não exige refazer tratamento nenhum.
+     Os arquivos vivem em public/fundos/: `<arquivo>.webp` (1600x500) e
+     `<arquivo>-mobile.webp` (800x900), gerados de um único original. */
+  .item[data-foto] {
+    position: relative; isolation: isolate; overflow: hidden;
+    border: 0; border-radius: 14px;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    min-height: 300px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    background: var(--marinho);
+  }
+  .item[data-foto] + .item[data-foto] { margin-top: 1rem; }
+  .lista { display: grid; gap: 0; }
+
+  .item__fundo { position: absolute; inset: 0; z-index: -2; }
+  .item__fundo img { width: 100%; height: 100%; object-fit: cover; }
+  .item[data-foto]::after {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(to top, rgba(8, 12, 36, 0.95) 0%, rgba(8, 12, 36, 0.88) 38%, rgba(8, 12, 36, 0.62) 70%, rgba(8, 12, 36, 0.42) 100%);
+  }
+
+  .item[data-foto] .etiqueta { background: rgba(255, 255, 255, 0.16); color: #fff; }
+  .item[data-foto] .item__situacao,
+  .item[data-foto] .item__periodo { color: #C9D3FF; }
+  .item[data-foto] .item__situacao[data-situacao='Ativo'] { color: #7BE8AE; }
+  .item[data-foto] .item__link { color: #fff; }
+  .item[data-foto] .item__link:hover { color: #C9D3FF; }
+  .item[data-foto] .item__resumo { color: #E4E9FF; }
+  .item[data-foto] .mini li { color: #C9D3FF; }
+  .item[data-foto] .mini strong { color: #fff; }
+
+  .item[data-foto] .item__fundo img { transition: transform 0.5s ease; }
+  .item[data-foto]:hover .item__fundo img { transform: scale(1.03); }
+
+  /* os que ainda não têm foto seguem no formato antigo, separados por linha */
+  .item:not([data-foto]) { border-bottom: 1px solid var(--linha); }
+
+  @media (max-width: 700px) {
+    .item[data-foto] { min-height: 360px; }
+  }
+
   .item__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin-bottom: 0.85rem; }
   .etiqueta {
     font-family: var(--fonte-titulo); font-size: 0.72rem; font-weight: 600;

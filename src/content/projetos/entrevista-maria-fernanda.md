@@ -5,6 +5,9 @@ periodo: 9 de setembro de 2020
 inicio: 2020-09-09
 situacao: Realizado
 resumo: Conversa ao vivo com a escritora e defensora pública, vencedora do Prêmio Jabuti de 2018.
+fundo:
+  arquivo: entrevista-maria-fernanda
+  alt: Arte de divulgação da entrevista com Maria Fernanda Elias Maglio
 ---
 
 Em setembro de 2020, a ADECAC recebeu **Maria Fernanda Elias Maglio** para uma conversa
