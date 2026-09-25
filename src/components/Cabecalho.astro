@@ -4,6 +4,7 @@ const links = [
   { href: '/', rotulo: 'Início' },
   { href: '/quem-somos/', rotulo: 'Quem somos' },
   { href: '/projetos/', rotulo: 'Projetos' },
+  { href: '/redes/', rotulo: 'Redes sociais' },
   { href: '/transparencia/', rotulo: 'Transparência' },
   { href: '/contato/', rotulo: 'Contato' },
 ];
@@ -48,7 +49,8 @@ const ativo = (href: string) =>
     font-family: var(--fonte-titulo);
     font-size: 0.93rem; font-weight: 500;
     color: var(--tinta); text-decoration: none;
-    padding: 0.5rem 0.85rem; border-radius: 8px;
+    padding: 0.5rem 0.7rem; border-radius: 8px;
+    white-space: nowrap;
   }
   .cab__nav a:hover { background: var(--papel-suave); color: var(--azul-escuro); }
   .cab__nav a[aria-current='page'] { color: var(--azul-escuro); font-weight: 600; }
@@ -63,7 +65,7 @@ const ativo = (href: string) =>
   .cab__barras { display: grid; gap: 3px; }
   .cab__barras i { display: block; width: 17px; height: 2px; background: var(--tinta); }
 
-  @media (max-width: 860px) {
+  @media (max-width: 980px) {
     .cab__botao { display: flex; }
     .cab__nav {
       display: none; position: absolute; left: 0; right: 0; top: 100%;

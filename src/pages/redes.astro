@@ -1,0 +1,244 @@
+---
+import Base from '../layouts/Base.astro';
+import { ORG } from '../dados';
+import { getCollection } from 'astro:content';
+
+/* Todos os endereços públicos da associação num lugar só. A ordem segue o
+   briefing §1: a marca-mãe primeiro, os perfis de projeto depois. */
+
+const perfis = [
+  {
+    icone: 'instagram',
+    nome: 'Instagram',
+    conta: ORG.instagramNome,
+    url: ORG.instagram,
+    endereco: 'instagram.com/adecac_cajuru',
+    oQueTem: 'O dia a dia da associação: chamadas de matrícula, bastidores dos eventos e a programação dos festivais.',
+  },
+  {
+    icone: 'youtube',
+    nome: 'YouTube',
+    conta: ORG.youtubeNome,
+    url: ORG.youtube,
+    endereco: 'youtube.com/@AdecacdeCajuru',
+    oQueTem: 'Os vídeos completos: apresentações da Orquestra de Cordas, registros dos festivais e entrevistas.',
+  },
+  {
+    icone: 'facebook',
+    nome: 'Facebook',
+    conta: 'adecaccajuru',
+    url: ORG.facebook,
+    endereco: 'facebook.com/adecaccajuru',
+    oQueTem: 'O canal mais antigo da associação, onde está boa parte do registro dos primeiros anos.',
+  },
+];
+
+const perfisProjeto = [
+  {
+    icone: 'instagram',
+    nome: ORG.instagramProjetoTitulo,
+    conta: ORG.instagramProjetoNome,
+    url: ORG.instagramProjeto,
+    endereco: 'instagram.com/orquestrandocomarte',
+    oQueTem: 'O perfil do projeto de música: as aulas nos núcleos, os ensaios e as apresentações dos alunos.',
+  },
+];
+
+const projetos = (await getCollection('projetos'))
+  .filter((p) => !p.data.rascunho)
+  .sort((a, b) => b.data.inicio.getTime() - a.data.inicio.getTime());
+---
+
+<Base
+  titulo="Redes sociais"
+  descricao="Todos os perfis da ADECAC em um lugar: Instagram, YouTube, Facebook e o perfil do projeto de música, além dos links de cada projeto."
+>
+  <section class="topo">
+    <div class="wrap">
+      <p class="olho">Redes sociais</p>
+      <h1>Acompanhe a ADECAC de perto</h1>
+      <p class="topo__linha">
+        É nas redes que a associação avisa primeiro: quando abrem as matrículas das aulas
+        gratuitas de música, quando sai a programação do Festival da Diversidade Cultural,
+        quando a Orquestra de Cordas vai tocar. Siga, compartilhe e venha participar — é de
+        graça e é da cidade.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <h2>Os perfis da associação</h2>
+      <p class="secao__linha">
+        Três canais, cada um com um papel. Todos abrem em uma nova aba.
+      </p>
+      <ul class="perfis">
+        {perfis.map((p) => (
+          <li>
+            <a href={p.url} rel="me noopener" target="_blank">
+              <span class="perfil__icone" aria-hidden="true" data-icone={p.icone}>
+                {p.icone === 'instagram' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                    <circle cx="12" cy="12" r="4.2" />
+                    <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none" />
+                  </svg>
+                )}
+                {p.icone === 'youtube' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <rect x="2" y="4.5" width="20" height="15" rx="4.2" />
+                    <path d="M10.2 9.1v5.8l5-2.9z" fill="currentColor" stroke="none" />
+                  </svg>
+                )}
+                {p.icone === 'facebook' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                    <path d="M14.6 21.5v-8.2h2.8l.5-3.3h-3.3V7.9c0-.95.3-1.6 1.7-1.6h1.7V3.4a24 24 0 0 0-2.6-.13c-2.6 0-4.3 1.6-4.3 4.4V10H8v3.3h3.1v8.2z" fill="currentColor" stroke="none" />
+                  </svg>
+                )}
+              </span>
+              <span class="perfil__texto">
+                <strong>{p.nome} <span class="perfil__conta">{p.conta}</span></strong>
+                <span class="perfil__oque">{p.oQueTem}</span>
+                <span class="perfil__endereco">{p.endereco}</span>
+              </span>
+              <span class="perfil__seta" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao secao--suave">
+    <div class="wrap">
+      <h2>O perfil do projeto</h2>
+      <p class="secao__linha">
+        O projeto de música tem conta própria, com o acompanhamento das turmas semana a semana.
+      </p>
+      <ul class="perfis">
+        {perfisProjeto.map((p) => (
+          <li>
+            <a href={p.url} rel="noopener" target="_blank">
+              <span class="perfil__icone" aria-hidden="true" data-icone={p.icone}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                  <circle cx="12" cy="12" r="4.2" />
+                  <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <span class="perfil__texto">
+                <strong>{p.nome} <span class="perfil__conta">{p.conta}</span></strong>
+                <span class="perfil__oque">{p.oQueTem}</span>
+                <span class="perfil__endereco">{p.endereco}</span>
+              </span>
+              <span class="perfil__seta" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap">
+      <h2>Os projetos, um a um</h2>
+      <p class="secao__linha">
+        Cada projeto tem página própria neste site, com o texto, os números e as fotos do acervo.
+      </p>
+      <ul class="projetos">
+        {projetos.map((p) => (
+          <li>
+            <a href={`/projetos/${p.id}/`}>
+              <span class="projeto__titulo">{p.data.titulo}</span>
+              <span class="projeto__nota">
+                {p.data.emConstrucao ? 'Em construção' : `${p.data.eixo} · ${p.data.periodo}`}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao secao--escura">
+    <div class="wrap">
+      <div class="prosa">
+        <h2>Ajude a espalhar</h2>
+        <p>
+          A ADECAC não tem equipe de comunicação. Quem faz a notícia chegar em quem precisa dela
+          — a mãe que não sabe que a aula de violino é gratuita, o artista que não soube da
+          inscrição do festival — é você, compartilhando. Marque a associação nas suas fotos dos
+          eventos: elas entram no acervo da cidade.
+        </p>
+        <p>
+          Para falar diretamente conosco, o caminho é a
+          <a href="/contato/">página de contato</a> ou o e-mail
+          <a href={`mailto:${ORG.email}`}>{ORG.email}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .topo { background: var(--papel-suave); padding-block: clamp(3rem, 7vw, 4.75rem); border-bottom: 1px solid var(--linha); }
+  .topo h1 { max-width: 20ch; }
+  .topo__linha { font-size: 1.08rem; color: var(--tinta-suave); max-width: 62ch; margin-top: 1rem; }
+
+  .secao__linha { color: var(--tinta-suave); max-width: 62ch; margin-top: 0.5rem; }
+
+  .perfis { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; gap: 0.85rem; }
+  .perfis a {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid var(--linha); border-radius: 12px;
+    background: #fff; text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .perfis a:hover {
+    border-color: var(--azul-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(20, 30, 80, 0.08);
+  }
+
+  .perfil__icone {
+    flex: none; width: 44px; height: 44px;
+    display: grid; place-items: center;
+    border-radius: 11px; background: #EDF0FF; color: var(--azul-escuro);
+  }
+  .perfil__icone svg { width: 24px; height: 24px; }
+
+  .perfil__texto { display: grid; gap: 0.3rem; min-width: 0; }
+  .perfil__texto strong {
+    font-family: var(--fonte-titulo); font-size: 1.05rem; font-weight: 600; color: var(--tinta);
+  }
+  .perfil__conta { font-weight: 500; color: var(--azul-escuro); }
+  .perfil__oque { color: var(--tinta-suave); font-size: 0.95rem; max-width: 60ch; }
+  .perfil__endereco {
+    font-size: 0.82rem; color: var(--tinta-suave);
+    letter-spacing: 0.02em; word-break: break-all;
+  }
+  .perfil__seta { margin-left: auto; color: var(--azul-escuro); font-size: 1.2rem; flex: none; }
+
+  .projetos {
+    list-style: none; margin: 1.75rem 0 0; padding: 0;
+    display: grid; gap: 0.7rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .projetos a {
+    display: grid; gap: 0.25rem; height: 100%;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--linha); border-radius: 10px;
+    text-decoration: none; background: #fff;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .projetos a:hover { border-color: var(--azul-principal); background: var(--papel-suave); }
+  .projeto__titulo {
+    font-family: var(--fonte-titulo); font-weight: 600; font-size: 1rem; color: var(--tinta);
+  }
+  .projeto__nota { font-size: 0.85rem; color: var(--tinta-suave); }
+
+  @media (max-width: 560px) {
+    .perfil__seta { display: none; }
+  }
+</style>
