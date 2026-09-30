@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { ORG, GOVERNANCA } from '../dados';
+import { PARCERIAS, DOCUMENTOS } from '../parcerias';
 
 const cadastro = [
   { rotulo: 'Razão social', valor: ORG.razaoSocial },
@@ -73,16 +74,143 @@ const orgaos = [
     </div>
   </section>
 
-  <section class="secao">
+  <section class="secao" id="parcerias">
+    <div class="wrap">
+      <h2>Parcerias com a administração pública</h2>
+      <p class="prosa">
+        Divulgação obrigatória, nos termos do <strong>art. 11 da Lei nº 13.019/2014</strong> e do
+        art. 42, §4º, do Decreto nº 8.726/2016. Estão listadas todas as parcerias celebradas pela
+        associação com órgãos públicos, com ou sem repasse de recursos.
+      </p>
+
+      {PARCERIAS.map((p) => (
+        <article class="parceria">
+          <header class="parceria__topo">
+            <h3>{p.instrumento}</h3>
+            <p class="parceria__orgao">{p.orgaoCurto}</p>
+          </header>
+
+          <dl class="campos">
+            <div class="campo">
+              <dt>Data de assinatura</dt>
+              <dd>
+                {p.assinatura}
+                {p.assinaturaNota && <span class="campo__nota">{p.assinaturaNota}</span>}
+              </dd>
+            </div>
+            <div class="campo">
+              <dt>Vigência</dt>
+              <dd>{p.vigencia}</dd>
+            </div>
+            <div class="campo">
+              <dt>Órgão responsável</dt>
+              <dd>{p.orgao}<span class="campo__nota">CNPJ {p.orgaoCnpj}</span></dd>
+            </div>
+            <div class="campo">
+              <dt>Organização da sociedade civil</dt>
+              <dd>{ORG.razaoSocial}<span class="campo__nota">CNPJ {ORG.cnpj}</span></dd>
+            </div>
+            <div class="campo">
+              <dt>Objeto</dt>
+              <dd>{p.objeto}</dd>
+            </div>
+            <div class="campo">
+              <dt>Valor total</dt>
+              <dd><strong class="valor">{p.valorTotal}</strong></dd>
+            </div>
+            <div class="campo">
+              <dt>Valores liberados</dt>
+              <dd>{p.valorLiberado}</dd>
+            </div>
+            {p.identificacao.map((i) => (
+              <div class="campo">
+                <dt>{i.rotulo}</dt>
+                <dd>{i.valor}</dd>
+              </div>
+            ))}
+          </dl>
+
+          {p.planoTrabalho && (
+            <div class="bloco">
+              <h4>Plano de trabalho</h4>
+              <p class="bloco__linha">
+                Rubricas previstas. As marcadas como <em>equipe</em> compõem a remuneração da equipe
+                de trabalho paga com recursos da parceria — art. 11, VI, da Lei 13.019/2014 e art. 80
+                do Decreto 8.726/2016. Total destinado à equipe: <strong>{p.equipeTotal}</strong>.
+              </p>
+              <table class="tabela">
+                <thead>
+                  <tr><th>Rubrica</th><th class="num">Valor previsto</th></tr>
+                </thead>
+                <tbody>
+                  {p.planoTrabalho.map((r) => (
+                    <tr data-equipe={r.equipe ? '' : undefined}>
+                      <td>{r.item}{r.equipe && <span class="marca">equipe</span>}</td>
+                      <td class="num">{r.valor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr><td>Total</td><td class="num">{p.valorTotal}</td></tr>
+                </tfoot>
+              </table>
+            </div>
+          )}
+
+          <div class="bloco">
+            <h4>Situação da prestação de contas</h4>
+            <dl class="campos campos--compacto">
+              {p.prestacaoContas.map((c) => (
+                <div class="campo">
+                  <dt>{c.rotulo}</dt>
+                  <dd>{c.valor}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {p.observacao && <p class="parceria__nota">{p.observacao}</p>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="secao secao--suave">
     <div class="wrap">
       <div class="prosa">
       <h2>Documentos institucionais</h2>
       <p>
-        O Estatuto Social, as atas de assembleia e as prestações de contas da associação estão sendo
-        organizados para publicação nesta página.
+        Instrumentos e peças das parcerias, em PDF. O Estatuto Social, as atas de assembleia e as
+        prestações de contas da associação seguem em organização para publicação aqui.
       </p>
-      <p>
-        Até lá, pedidos de documento podem ser feitos pelo e-mail{' '}
+      </div>
+
+      <ul class="docs">
+        {DOCUMENTOS.map((d) => (
+          <li>
+            <a href={`/documentos/${d.arquivo}`} target="_blank" rel="noopener">
+              <span class="docs__icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M13.5 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                  <path d="M13.5 2.5V8H19" />
+                </svg>
+              </span>
+              <span class="docs__texto">
+                <strong>{d.titulo}</strong>
+                <span class="docs__descricao">{d.descricao}</span>
+                <span class="docs__meta">PDF · {d.tamanho}</span>
+              </span>
+              <span class="docs__seta" aria-hidden="true">↓</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="prosa">
+      <p class="docs__aviso">
+        Documentos que contêm dados pessoais de terceiros — CPF, RG, endereço residencial ou
+        telefone — não são publicados. As informações que a lei exige deles aparecem acima,
+        extraídas sem expor ninguém. Outros documentos podem ser pedidos pelo e-mail{' '}
         <a href={`mailto:${ORG.email}`}>{ORG.email}</a>.
       </p>
 
@@ -93,7 +221,7 @@ const orgaos = [
         descrito em documento próprio.
       </p>
       <p><a class="btn" href="/privacidade/">Política de privacidade e proteção de dados</a></p>
-    </div>
+      </div>
     </div>
   </section>
 </Base>
@@ -115,4 +243,77 @@ const orgaos = [
   .orgao ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.95rem; }
   .orgao__nome { display: block; font-weight: 600; font-size: 0.97rem; }
   .orgao__cargo { display: block; font-size: 0.87rem; color: var(--tinta-suave); }
+
+  /* Parcerias — cada uma é um bloco fechado, com os campos que o art. 11 da
+     Lei 13.019/2014 exige. A leitura é de fiscal: precisa achar o campo rápido. */
+  .parceria {
+    margin-top: 2.25rem; padding: clamp(1.5rem, 4vw, 2.25rem);
+    background: #fff; border: 1px solid var(--linha);
+    border-left: 4px solid var(--azul-principal); border-radius: var(--raio);
+  }
+  .parceria__topo { padding-bottom: 1.2rem; border-bottom: 1px solid var(--linha); margin-bottom: 0.5rem; }
+  .parceria__topo h3 { font-size: clamp(1.1rem, 2.4vw, 1.3rem); color: var(--marinho); margin-bottom: 0.4rem; }
+  .parceria__orgao { color: var(--tinta-suave); font-size: 0.95rem; margin: 0; max-width: 70ch; }
+  .parceria__nota {
+    margin: 1.4rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--linha);
+    font-size: 0.92rem; color: var(--tinta-suave); max-width: 72ch;
+  }
+
+  .campos { margin: 0; display: grid; }
+  .campo { display: grid; grid-template-columns: 17rem 1fr; gap: 1.5rem; padding: 0.95rem 0; border-bottom: 1px solid var(--linha); }
+  .campo:last-child { border-bottom: 0; }
+  .campo dt { font-family: var(--fonte-titulo); font-weight: 600; font-size: 0.86rem; color: var(--azul-escuro); }
+  .campo dd { margin: 0; max-width: 78ch; }
+  .campo__nota { display: block; font-size: 0.86rem; color: var(--tinta-suave); margin-top: 0.2rem; }
+  .campos--compacto .campo { grid-template-columns: 20rem 1fr; }
+  .valor { font-family: var(--fonte-titulo); font-size: 1.15rem; color: var(--azul-escuro); }
+  @media (max-width: 760px) {
+    .campo, .campos--compacto .campo { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+
+  .bloco { margin-top: 1.8rem; padding-top: 1.6rem; border-top: 1px solid var(--linha); }
+  .bloco h4 {
+    font-family: var(--fonte-titulo); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul-escuro);
+    margin-bottom: 0.7rem;
+  }
+  .bloco__linha { font-size: 0.92rem; color: var(--tinta-suave); max-width: 74ch; margin-bottom: 1.2rem; }
+
+  .tabela { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  .tabela th, .tabela td { text-align: left; padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--linha); }
+  .tabela th {
+    font-family: var(--fonte-titulo); font-size: 0.76rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--azul-escuro);
+  }
+  .tabela .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tabela tr[data-equipe] td:first-child { font-weight: 500; }
+  .tabela tfoot td { font-weight: 700; color: var(--marinho); border-bottom: 0; border-top: 2px solid var(--linha); }
+  .marca {
+    display: inline-block; margin-left: 0.5rem;
+    font-family: var(--fonte-titulo); font-size: 0.66rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: #EDF0FF; color: var(--azul-escuro);
+    padding: 0.15em 0.5em; border-radius: 99px; vertical-align: 1px;
+  }
+
+  /* Documentos para download */
+  .docs { list-style: none; margin: 1.75rem 0; padding: 0; display: grid; gap: 0.7rem; }
+  .docs a {
+    display: flex; align-items: flex-start; gap: 0.95rem;
+    padding: 1.05rem 1.2rem; background: #fff;
+    border: 1px solid var(--linha); border-radius: 10px; text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+  }
+  .docs a:hover { border-color: var(--azul-principal); transform: translateY(-1px); }
+  .docs__icone {
+    flex: none; width: 38px; height: 38px; display: grid; place-items: center;
+    border-radius: 9px; background: #EDF0FF; color: var(--azul-escuro);
+  }
+  .docs__icone svg { width: 20px; height: 20px; }
+  .docs__texto { display: grid; gap: 0.2rem; min-width: 0; }
+  .docs__texto strong { font-family: var(--fonte-titulo); font-size: 0.98rem; color: var(--tinta); }
+  .docs__descricao { font-size: 0.9rem; color: var(--tinta-suave); max-width: 68ch; }
+  .docs__meta { font-size: 0.8rem; color: var(--tinta-suave); letter-spacing: 0.03em; }
+  .docs__seta { margin-left: auto; color: var(--azul-escuro); font-size: 1.15rem; flex: none; }
+  .docs__aviso { font-size: 0.92rem; color: var(--tinta-suave); max-width: 74ch; }
 </style>
