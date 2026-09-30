@@ -7,7 +7,10 @@ export const ORG = {
   sigla: 'ADECAC',
   cnpj: '14.100.715/0001-20',
   fundacao: '23 de abril de 2011',
-  registroEstatuto: '22/06/2011 — Cartório de Registro de Imóveis e Anexos de Cajuru/SP',
+  // Corrigido em 30/09/2026 contra a certidão de registro do próprio estatuto,
+  // publicada em /documentos/estatuto-social.pdf. O briefing §2 trazia 22/06/2011;
+  // a certidão diz 14/07/2011 e traz o número do registro. Divergência a registrar no §7.
+  registroEstatuto: '14/07/2011 — Registro nº R-618, fls. 157, Livro A-7/PJ, Serviço Registral de Pessoas Jurídicas de Cajuru/SP',
   natureza: 'Entidade civil de direito privado, sem fins econômicos',
   endereco: 'Rua Sampaio Moreira, 1018 — Centro — Cajuru/SP',
   cep: 'CEP 14240-017',

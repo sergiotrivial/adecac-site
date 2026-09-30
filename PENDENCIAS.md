@@ -4,7 +4,7 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 
 ## Esperando você
 
-- [ ] **Vídeo da entrevista com a Nana** — subir no canal do YouTube e me passar o link.
+- [x] ~~**Vídeo da entrevista com a Nana**~~ — no ar em 30/09/2026.
       A página já existe e o espaço do player está pronto: basta uma linha no arquivo
       `src/content/projetos/entrevista-maria-fernanda.md`.
 - [ ] **Fotos das crianças com os instrumentos** — não existe nenhuma em pasta alguma do
@@ -15,10 +15,30 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 - [ ] **Conferir os nomes das atrações.** Deduzi das pastas do acervo e posso ter errado
       grafia: Briltles, Dr. Rocha, Léo, Lesus, Mamutes, Max e Pedrão, Mingo, Old Youngs,
       Elton J, Hanna Trio, Karol Luz, Lobo Guaíra, Serenata, Tico, Domingos e Banda.
-- [ ] **Documentos de transparência** — Estatuto e prestações de contas em PDF.
+- [ ] **Prestações de contas em PDF** — o Estatuto já está publicado (30/09/2026).
       A página promete publicação e hoje só remete ao e-mail.
-- [ ] **Domínio adecac.com.br** — onde está registrado e quem administra, para planejar
+- [x] ~~**Domínio adecac.com.br**~~ — no ar com HTTPS em 30/09/2026. Registro.br, DNS do próprio registro.br, vence 19/09/2027. (histórico) onde está registrado e quem administra, para planejar
       a migração sem derrubar o site antigo.
+
+### Ofício nº 1011/2026 do Ministério da Cultura — Processo 01400.034848/2025-59
+
+O Ofício exige doze itens na página de transparência. Onze estão no ar. Falta:
+
+- [ ] **Autor e modalidade da emenda parlamentar nº 42650011** — item (j). Está no painel
+      gerencial do Transferegov.br, aba "Visão OSC". A página declara "em confirmação"
+      enquanto isso.
+- [ ] **Termo de Fomento na versão assinada** — o PDF publicado é o texto integral, mas
+      impresso do SEI antes de assinar: não tem carimbo de assinatura eletrônica, código
+      verificador nem CRC. Baixar do SEI a via com carimbo e me mandar; eu troco o arquivo
+      no mesmo endereço, sem quebrar link.
+- [ ] **PDF da Prorrogação de Ofício nº 00001/2025** — item (i) pede os aditivos. Hoje a
+      página linka o extrato no DOU; o documento em si seria melhor.
+- [ ] **Aplicação dos recursos** — item (l). A destinação prevista está publicada; conforme
+      o projeto executar, a página precisa acompanhar o que foi efetivamente gasto.
+
+A obrigação não acaba na entrega: o art. 80 do Decreto 8.726/2016 manda manter tudo no ar
+e **atualizado** até 180 dias depois da prestação de contas final — ou seja, até cerca de
+abril de 2028.
 
 ## Próximos passos meus
 
