@@ -39,6 +39,9 @@ export interface Parceria {
   // publicações no Diário Oficial da União, com link — permitem que qualquer
   // pessoa confira os dados desta página contra a fonte oficial
   publicacoes?: { rotulo: string; valor: string; url: string }[];
+  // itens (j) e (k) do Ofício 1011/2026/CSA/SAFCC/MinC, que decorrem das
+  // decisões do STF na ADPF 854 sobre rastreabilidade de emendas parlamentares
+  emenda?: { rotulo: string; valor: string }[];
   prestacaoContas: { rotulo: string; valor: string }[];
   // plano de trabalho: toda rubrica, com marcação de quais são equipe
   planoTrabalho?: { item: string; valor: string; equipe?: boolean }[];
@@ -68,6 +71,11 @@ export const PARCERIAS: Parceria[] = [
       { rotulo: 'Nota de empenho', valor: 'nº 2025NE000147' },
       { rotulo: 'Legislação', valor: 'Lei nº 13.019/2014 e Decreto nº 8.726/2016' },
       { rotulo: 'Prorrogação', valor: 'Prorrogação de Ofício nº 00001/2025, assinada em 28/01/2026, com fundamento no art. 30, VI, da Portaria Interministerial nº 127/2008. Estendeu a vigência até 06/07/2027.' },
+    ],
+    emenda: [
+      { rotulo: 'Identificação da emenda', valor: 'Emenda Parlamentar nº 42650011' },
+      { rotulo: 'Autor e modalidade', valor: 'Em confirmação junto ao painel gerencial do Transferegov.br. Será publicado assim que obtido.' },
+      { rotulo: 'Valor total recebido pela entidade por meio de emendas parlamentares', valor: 'R$ 200.000,00 — correspondente a esta parceria, única recebida por emenda parlamentar até a presente data.' },
     ],
     publicacoes: [
       {
@@ -164,6 +172,20 @@ export const PARCERIAS: Parceria[] = [
    do representante legal e da equipe. As informações que a lei exige deles
    estão acima, extraídas sem expor ninguém. */
 export const DOCUMENTOS = [
+  {
+    arquivo: 'estatuto-social.pdf',
+    titulo: 'Estatuto Social',
+    descricao:
+      'Via registrada no Serviço Registral de Pessoas Jurídicas de Cajuru/SP sob o nº R-618, fls. 157, Livro A-7/PJ, em 14 de julho de 2011, com a certidão de registro na última página.',
+    tamanho: '2,3 MB',
+  },
+  {
+    arquivo: 'termo-fomento-986297-2025.pdf',
+    titulo: 'Termo de Fomento nº 986297/2025 — texto integral',
+    descricao:
+      'Instrumento celebrado com o Ministério da Cultura, com todas as cláusulas. A Prorrogação de Ofício nº 00001/2025 tem seu extrato publicado no Diário Oficial da União, com link na seção acima.',
+    tamanho: '307 KB',
+  },
   {
     arquivo: 'declaracao-transparencia.pdf',
     titulo: 'Declaração de Transparência',

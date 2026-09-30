@@ -49,7 +49,7 @@ const orgaos = [
     </div>
   </section>
 
-  <section class="secao secao--suave">
+  <section class="secao secao--suave" id="governanca">
     <div class="wrap">
       <h2>Governança</h2>
       <p class="prosa">
@@ -78,9 +78,11 @@ const orgaos = [
     <div class="wrap">
       <h2>Parcerias com a administração pública</h2>
       <p class="prosa">
-        Divulgação obrigatória, nos termos do <strong>art. 11 da Lei nº 13.019/2014</strong> e do
-        art. 42, §4º, do Decreto nº 8.726/2016. Estão listadas todas as parcerias celebradas pela
-        associação com órgãos públicos, com ou sem repasse de recursos.
+        Divulgação obrigatória, nos termos do <strong>art. 11 da Lei nº 13.019/2014</strong>, do
+        art. 80 do Decreto nº 8.726/2016 e do art. 63 do Decreto nº 7.724/2012. Estão listadas
+        todas as parcerias celebradas pela associação com órgãos públicos, com ou sem repasse de
+        recursos. A <a href="#governanca">relação nominal dos dirigentes</a> e o
+        <a href="#documentos">Estatuto Social</a> constam nesta mesma página.
       </p>
 
       {PARCERIAS.map((p) => (
@@ -129,6 +131,24 @@ const orgaos = [
               </div>
             ))}
           </dl>
+
+          {p.emenda && (
+            <div class="bloco">
+              <h4>Emenda parlamentar</h4>
+              <p class="bloco__linha">
+                Rastreabilidade da origem do recurso, conforme o entendimento firmado pelo
+                Supremo Tribunal Federal na ADPF nº 854.
+              </p>
+              <dl class="campos campos--compacto">
+                {p.emenda.map((e) => (
+                  <div class="campo">
+                    <dt>{e.rotulo}</dt>
+                    <dd>{e.valor}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
 
           {p.publicacoes && (
             <div class="bloco">
@@ -195,7 +215,7 @@ const orgaos = [
     </div>
   </section>
 
-  <section class="secao secao--suave">
+  <section class="secao secao--suave" id="documentos">
     <div class="wrap">
       <div class="prosa">
       <h2>Documentos institucionais</h2>
