@@ -8,6 +8,9 @@ resumo: Conversa ao vivo com a escritora e defensora pública, vencedora do Prê
 fundo:
   arquivo: entrevista-maria-fernanda
   alt: Arte de divulgação da entrevista com Maria Fernanda Elias Maglio
+video:
+  youtube: XEh12nsbIls
+  titulo: "Nana: literatura, Cajuru e o caminho de quem quer escrever"
 ---
 
 Em setembro de 2020, a ADECAC recebeu **Maria Fernanda Elias Maglio** para uma conversa
