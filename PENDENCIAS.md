@@ -24,15 +24,15 @@ Ordem sugerida, da maior para a menor relevância. Atualizado em 24/09/2026.
 
 O Ofício exige doze itens na página de transparência. Onze estão no ar. Falta:
 
-- [ ] **Autor e modalidade da emenda parlamentar nº 42650011** — item (j). Está no painel
-      gerencial do Transferegov.br, aba "Visão OSC". A página declara "em confirmação"
-      enquanto isso.
+- [x] ~~**Autor e modalidade da emenda parlamentar**~~ — publicado em 01/10/2026. Senador
+      Marcos Pontes, Emenda Individual com Finalidade Definida, código 202542650011,
+      confirmado no Portal da Transparência.
 - [ ] **Termo de Fomento na versão assinada** — o PDF publicado é o texto integral, mas
       impresso do SEI antes de assinar: não tem carimbo de assinatura eletrônica, código
       verificador nem CRC. Baixar do SEI a via com carimbo e me mandar; eu troco o arquivo
       no mesmo endereço, sem quebrar link.
-- [ ] **PDF da Prorrogação de Ofício nº 00001/2025** — item (i) pede os aditivos. Hoje a
-      página linka o extrato no DOU; o documento em si seria melhor.
+- [x] ~~**PDF da Prorrogação de Ofício**~~ — publicado em 01/10/2026 a Certidão de
+      Apostilamento, com o Parecer nº 50/2026 que a fundamenta.
 - [ ] **Aplicação dos recursos** — item (l). A destinação prevista está publicada; conforme
       o projeto executar, a página precisa acompanhar o que foi efetivamente gasto.
 

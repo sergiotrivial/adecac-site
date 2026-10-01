@@ -62,7 +62,7 @@ export const PARCERIAS: Parceria[] = [
     objeto:
       'Realizar o projeto História da música, percepção rítmica e melódica: formação musical como prática cultural e cidadã, para alunos e alunas da rede pública de ensino da cidade de Cajuru, interior do estado de São Paulo, promovendo a formação musical teórica, com ênfase na diversidade cultural brasileira, utilizando metodologias acessíveis, participativas e inclusivas. O projeto visa introduzir conceitos fundamentais da teoria musical, além de desenvolver a percepção rítmica, melódica e harmônica, estimulando a criação musical coletiva, valorizando a identidade cultural dos territórios e formando multiplicadores musicais.',
     valorTotal: 'R$ 200.000,00',
-    valorLiberado: 'Liberado integralmente em parcela única de R$ 200.000,00, creditada em dezembro de 2025 em conta específica da parceria no Banco do Brasil, aberta para este fim. Contrapartida: R$ 0,00.',
+    valorLiberado: 'Liberado integralmente em parcela única de R$ 200.000,00, creditada em 16/12/2025 em conta específica da parceria no Banco do Brasil, aberta para este fim. Contrapartida: R$ 0,00.',
     identificacao: [
       { rotulo: 'Proposta', valor: 'nº 029753/2025' },
       { rotulo: 'Processo', valor: 'nº 01400.034848/2025-59' },
@@ -70,11 +70,14 @@ export const PARCERIAS: Parceria[] = [
       { rotulo: 'Ação orçamentária', valor: '20ZF — Promoção e Fomento à Cultura Brasileira' },
       { rotulo: 'Nota de empenho', valor: 'nº 2025NE000147' },
       { rotulo: 'Legislação', valor: 'Lei nº 13.019/2014 e Decreto nº 8.726/2016' },
-      { rotulo: 'Prorrogação', valor: 'Prorrogação de Ofício nº 00001/2025, assinada em 28/01/2026, com fundamento no art. 30, VI, da Portaria Interministerial nº 127/2008. Estendeu a vigência até 06/07/2027.' },
+      { rotulo: 'Prorrogação', valor: 'Prorrogação de Ofício de 6 dias, apostilada em 28/01/2026 pela Secretária de Articulação Federativa e Comitês de Cultura. O repasse ocorreu em 16/12/2025, seis dias depois do início da vigência; como o atraso foi da administração pública, o art. 43, §1º, I, do Decreto nº 8.726/2016 determina a prorrogação pelo exato período do atraso. A vigência passou de 30/06/2027 para 06/07/2027.' },
+      { rotulo: 'Fundamento da prorrogação', valor: 'Parecer nº 50/2026/CSA/SAFCC/GAB/SAFCC/MinC e Certidão de Apostilamento, ambos no processo nº 01400.034848/2025-59.' },
     ],
     emenda: [
-      { rotulo: 'Identificação da emenda', valor: 'Emenda Parlamentar nº 42650011' },
-      { rotulo: 'Autor e modalidade', valor: 'Em confirmação junto ao painel gerencial do Transferegov.br. Será publicado assim que obtido.' },
+      { rotulo: 'Identificação da emenda', valor: 'Emenda nº 42650011, registrada no Portal da Transparência sob o código 202542650011.' },
+      { rotulo: 'Autor', valor: 'Senador Marcos Pontes, registrado como “Astronauta Marcos Pontes / Emenda 11”.' },
+      { rotulo: 'Modalidade', valor: 'Emenda Individual — Transferências com Finalidade Definida.' },
+      { rotulo: 'Valor total da emenda', valor: 'R$ 750.000,00 empenhados, conforme o Portal da Transparência. Desse total, R$ 200.000,00 foram destinados a esta parceria.' },
       { rotulo: 'Valor total recebido pela entidade por meio de emendas parlamentares', valor: 'R$ 200.000,00 — correspondente a esta parceria, única recebida por emenda parlamentar até a presente data.' },
     ],
     publicacoes: [
@@ -87,6 +90,11 @@ export const PARCERIAS: Parceria[] = [
         rotulo: 'Extrato da Prorrogação de Ofício',
         valor: 'DOU de 11/08/2026, Seção 3',
         url: 'https://www.in.gov.br/en/web/dou/-/extrato-de-prorrogacao-de-oficio-724680697',
+      },
+      {
+        rotulo: 'Emenda parlamentar no Portal da Transparência',
+        valor: 'Código 202542650011 — autor, modalidade e valores',
+        url: 'https://portaldatransparencia.gov.br/emendas/detalhe?codigoEmenda=202542650011',
       },
     ],
     prestacaoContas: [
@@ -178,6 +186,13 @@ export const DOCUMENTOS = [
     descricao:
       'Via registrada no Serviço Registral de Pessoas Jurídicas de Cajuru/SP sob o nº R-618, fls. 157, Livro A-7/PJ, em 14 de julho de 2011, com a certidão de registro na última página.',
     tamanho: '2,3 MB',
+  },
+  {
+    arquivo: 'certidao-apostilamento-prorrogacao.pdf',
+    titulo: 'Certidão de Apostilamento da Prorrogação de Ofício',
+    descricao:
+      'Ato que prorrogou a vigência do Termo de Fomento em 6 dias, acompanhado do Parecer nº 50/2026 que o fundamenta. Assinado eletronicamente em 28/01/2026, com código verificador 2667406 e CRC 95C82D14, conferíveis no SEI do Ministério da Cultura.',
+    tamanho: '104 KB',
   },
   {
     arquivo: 'termo-fomento-986297-2025.pdf',
