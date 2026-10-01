@@ -25,11 +25,13 @@ const CHAVE_MATERIAL: Record<string, string> = {
   'ii-festival-diversidade-cultural': 'material-ii-festival',
   'historia-da-musica': 'material-historia-da-musica',
   'palestra-arena-virtual': 'material-palestra-arena-virtual',
+  'educando-com-arte': 'material-educando-com-arte',
 };
 const chaveMaterial = CHAVE_MATERIAL[projeto.id];
 const DESCRICAO_MATERIAL: Record<string, string> = {
   'historia-da-musica': 'Artes de divulgação do projeto, usadas nas redes sociais e nas escolas.',
   'palestra-arena-virtual': 'O convite distribuído pela associação para a palestra.',
+  'educando-com-arte': 'Cartazes, folhetos e peças de redes sociais das edições de 2021, 2023 e 2024.',
 };
 const descricaoMaterial = DESCRICAO_MATERIAL[projeto.id]
   ?? 'Programa, expositores e patrocinadores da edição — peças originais do evento, digitalizadas.';
@@ -62,6 +64,12 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
         </div>
         <h1>{d.titulo}</h1>
         {!obra && <p class="topo__periodo">{d.periodo}</p>}
+        {d.papel === 'apoio' && (
+          <p class="topo__papel">
+            Projeto de outra organização, apoiado pela ADECAC. A ficha técnica, ao fim da
+            página, traz quem realizou, produziu e patrocinou.
+          </p>
+        )}
       </div>
     </header>
 
@@ -119,9 +127,14 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
         fotos={acervo}
         pasta={projeto.id}
         titulo="Galeria"
-        descricao={d.fotografia
-          ? `Fotografias de ${d.fotografia}, do acervo da associação. Clique em qualquer imagem para ampliar.`
-          : 'Registros do acervo da associação. Clique em qualquer imagem para ampliar.'}
+        descricao={(() => {
+          // projeto de terceiro não tem "acervo da associação" — o crédito é de quem fotografou
+          const fonte = d.papel === 'apoio' ? '' : ', do acervo da associação';
+          if (d.fotografia) return `Fotografias de ${d.fotografia}${fonte}. Clique em qualquer imagem para ampliar.`;
+          return d.papel === 'apoio'
+            ? 'Registros do projeto. Clique em qualquer imagem para ampliar.'
+            : 'Registros do acervo da associação. Clique em qualquer imagem para ampliar.';
+        })()}
       />
     )}
 
@@ -191,6 +204,11 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
   .topo__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }
   .topo h1 { max-width: 22ch; }
   .topo__periodo { color: var(--tinta-suave); margin: 0; }
+  .topo__papel {
+    margin: 1rem 0 0; max-width: 62ch; font-size: 0.93rem;
+    color: var(--tinta-suave); border-left: 3px solid var(--azul-principal);
+    padding-left: 0.9rem;
+  }
 
   .faixa { background: var(--marinho); padding-block: 2.25rem; }
   .numeros { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2.75rem; }

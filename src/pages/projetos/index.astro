@@ -2,7 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunho).sort((a, b) => b.data.inicio.getTime() - a.data.inicio.getTime());
+const todos = (await getCollection('projetos'))
+  .filter((p) => !p.data.rascunho)
+  .sort((a, b) => b.data.inicio.getTime() - a.data.inicio.getTime());
+
+// o que é da associação e o que ela apenas apoiou ficam em blocos separados —
+// a lista não deve dar a entender que a ADECAC se apropria do que não é dela
+const projetos = todos.filter((p) => p.data.papel === 'proprio');
+const apoiados = todos.filter((p) => p.data.papel === 'apoio');
 ---
 
 <Base
@@ -62,6 +69,38 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
       </ul>
     </div>
   </section>
+
+  {apoiados.length > 0 && (
+    <section class="secao secao--suave">
+      <div class="wrap">
+        <p class="olho">Apoio institucional</p>
+        <h2>Projetos que a ADECAC apoiou</h2>
+        <p class="topo__linha">
+          Iniciativas de outras organizações, realizadas em Cajuru, em que a associação entrou
+          como apoiadora ou produção local. Não são projetos da ADECAC, e estão aqui porque
+          registrar o que se apoiou também é prestar contas.
+        </p>
+        <ul class="lista">
+          {apoiados.map((p) => (
+            <li class="item" data-foto={p.data.fundo ? '' : undefined}>
+              {p.data.fundo && (
+                <picture class="item__fundo">
+                  <source media="(min-width: 700px)" srcset={`/fundos/${p.data.fundo.arquivo}.webp`} />
+                  <img src={`/fundos/${p.data.fundo.arquivo}-mobile.webp`} alt={p.data.fundo.alt} loading="lazy" decoding="async" />
+                </picture>
+              )}
+              <div class="item__meta">
+                <span class="etiqueta etiqueta--apoio">Apoio</span>
+                <span class="item__periodo">{p.data.periodo}</span>
+              </div>
+              <h2><a class="item__link" href={`/projetos/${p.id}/`}>{p.data.titulo}</a></h2>
+              <p class="item__resumo">{p.data.resumo}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 </Base>
 
 <style>
@@ -124,6 +163,7 @@ const projetos = (await getCollection('projetos')).filter((p) => !p.data.rascunh
     padding: 0.32em 0.7em; border-radius: 99px;
   }
   .etiqueta--obra { background: var(--papel-suave); color: var(--tinta-suave); }
+  .etiqueta--apoio { background: rgba(255, 255, 255, 0.16); color: #fff; }
   .item[data-obra] .item__resumo { font-style: italic; }
   .item__situacao { font-size: 0.82rem; color: var(--tinta-suave); }
   .item__situacao[data-situacao='Ativo'] { color: #1C7A4B; font-weight: 600; }

@@ -9,6 +9,11 @@ const projetos = defineCollection({
     eixo: z.enum(['Memória', 'Formação', 'Celebração']),
     periodo: z.string(),
     situacao: z.enum(['Ativo', 'Realizado', 'Descontinuado']),
+    // `proprio` é projeto da ADECAC. `apoio` é projeto de outra organização em
+    // que a associação entrou como apoiadora ou produção local — aparece em
+    // bloco separado na lista e nunca na home, para não dar a entender que a
+    // associação se apropria do que não é dela.
+    papel: z.enum(['proprio', 'apoio']).default('proprio'),
     // Em rascunho o projeto não gera página nem aparece em lista alguma.
     // Serve para segurar no repositório o que ainda não está pronto para o ar.
     rascunho: z.boolean().default(false),
