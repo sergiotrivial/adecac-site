@@ -9,7 +9,14 @@ interface Props {
 }
 const { variante = 'claro', incluirProjeto = false } = Astro.props;
 
-const redes = [
+interface Rede {
+  nome: string;
+  rotulo: string;
+  url: string;
+  icone: 'instagram' | 'youtube' | 'facebook';
+}
+
+const redes: Rede[] = [
   { nome: 'Instagram', rotulo: ORG.instagramNome, url: ORG.instagram, icone: 'instagram' },
   { nome: 'YouTube', rotulo: ORG.youtubeNome, url: ORG.youtube, icone: 'youtube' },
   { nome: 'Facebook', rotulo: 'adecaccajuru', url: ORG.facebook, icone: 'facebook' },

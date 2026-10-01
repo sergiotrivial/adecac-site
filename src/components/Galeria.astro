@@ -214,7 +214,7 @@ const grupos = agrupar
 
     function ligar() {
       const itens = Array.from(secao.querySelectorAll<HTMLButtonElement>('.galeria__item'));
-      itens.forEach((btn, i) => {
+      itens.forEach((btn) => {
         if (btn.dataset.ligado) return;
         btn.dataset.ligado = '1';
         btn.addEventListener('click', () => {
@@ -223,7 +223,6 @@ const grupos = agrupar
           visor?.showModal();
         });
       });
-      void itens;
     }
     ligar();
 

@@ -1,0 +1,8 @@
+# Site institucional da ADECAC — Associação de Cultura e Artes de Cajuru.
+# Tudo aqui é público por vocação: é um acervo cultural e uma página de
+# transparência que a lei obriga a manter acessível. Nada a esconder de busca.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://adecac.com.br/sitemap-index.xml

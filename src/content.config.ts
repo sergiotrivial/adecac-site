@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const projetos = defineCollection({
@@ -34,9 +35,13 @@ const projetos = defineCollection({
     video: z.object({ youtube: z.string(), titulo: z.string() }).optional(),
     // capa em cor cheia, para projetos com arte própria
     capa: z.object({ arquivo: z.string(), alt: z.string() }).optional(),
-    // Foto de fundo do cartão do projeto na lista. Os arquivos ficam em
-    // public/fundos/: `<arquivo>.webp` para o desktop e `<arquivo>-mobile.webp`
-    // para o celular — os dois são gerados a partir de um único original.
+    // Foto de fundo do projeto. De um único original saem três arquivos em
+    // public/fundos/: `<arquivo>.webp` (faixa larga do desktop, 1600x500),
+    // `<arquivo>-mobile.webp` (cartão alto do celular, 800x900) e
+    // `<arquivo>-cartao.webp` (4:3, 800x600, para a home).
+    // O `-cartao` de projetos que hoje não aparecem na home fica guardado de
+    // propósito: se o projeto virar Ativo ou destaque, a home já tem a imagem.
+    // Não apagar por parecer sobra.
     fundo: z.object({ arquivo: z.string(), alt: z.string() }).optional(),
   }),
 });
