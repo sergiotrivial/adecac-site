@@ -36,8 +36,10 @@ const projetos = defineCollection({
     // devido, além da ficha técnica.
     fotografia: z.string().optional(),
     instagram: z.object({ url: z.string().url(), nome: z.string(), titulo: z.string() }).optional(),
-    // id do vídeo no YouTube; quando presente, a página incorpora o player
-    video: z.object({ youtube: z.string(), titulo: z.string() }).optional(),
+    // Vídeos no YouTube; cada um vira um player na página, na ordem em que
+    // estiverem aqui. Lista, e não um só, porque um projeto longo rende mais
+    // de um registro — as aulas e a apresentação final, por exemplo.
+    videos: z.array(z.object({ youtube: z.string(), titulo: z.string() })).default([]),
     // capa em cor cheia, para projetos com arte própria
     capa: z.object({ arquivo: z.string(), alt: z.string() }).optional(),
     // Foto de fundo do projeto. De um único original saem três arquivos em

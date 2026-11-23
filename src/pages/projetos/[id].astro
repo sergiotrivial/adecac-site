@@ -104,20 +104,24 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
     </div>
   </section>
 
-    {d.video && !obra && (
+    {d.videos.length > 0 && !obra && (
       <section class="secao video">
         <div class="wrap">
-          <p class="olho">Assista</p>
-          <h2>{d.video.titulo}</h2>
-          <div class="video__moldura">
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${d.video.youtube}`}
-              title={d.video.titulo}
-              loading="lazy"
-              allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <p class="olho">{d.videos.length === 1 ? 'Assista' : 'Assista'}</p>
+          {d.videos.map((v, i) => (
+            <div class="video__bloco" data-primeiro={i === 0 ? '' : undefined}>
+              <h2>{v.titulo}</h2>
+              <div class="video__moldura">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${v.youtube}`}
+                  title={v.titulo}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     )}
@@ -231,6 +235,7 @@ const material = !obra && chaveMaterial ? (galerias as Record<string, any[]>)[ch
   .obra p { color: var(--tinta-suave); margin-bottom: 0; }
   .obra__saida { margin-top: 1.2rem; }
 
+  .video__bloco + .video__bloco { margin-top: 3rem; }
   .video__moldura {
     position: relative; width: 100%; max-width: 900px;
     aspect-ratio: 16 / 9; margin-top: 1.5rem;

@@ -12,9 +12,11 @@ instagram:
   nome: '@orquestrandocomarte'
   titulo: Orquestrando a vida
 resumo: Curso de formação musical em escolas públicas de Cajuru, com aulas semanais e apresentação pública ao final.
-video:
-  youtube: UL5zDwkuqrU
-  titulo: "Orquestrando a Vida: as aulas de música nas escolas de Cajuru"
+videos:
+  - youtube: PnSh4yk8TKs
+    titulo: "O Maestro Maluco e a Viagem pela Música — a apresentação de 18 de novembro"
+  - youtube: UL5zDwkuqrU
+    titulo: "Orquestrando a Vida: as aulas de música nas escolas de Cajuru"
 fundo:
   arquivo: historia-da-musica
   alt: Aula do projeto de música para uma plateia de alunos, em escola de Cajuru
